@@ -3,7 +3,7 @@ import Header from "@/components/Header";
 import BackgroundGrid from "@/components/BackgroundGrid";
 export default function Home() {
   return (
-    <div className="relative min-h-screen bg-white">
+    <div className="relative min-h-screen bg-white overflow-hidden">
       {/* 背景卡片网格 */}
       <BackgroundGrid />
       {/* ⭐⭐ 顶部 Header */}
