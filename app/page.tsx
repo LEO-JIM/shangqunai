@@ -1,13 +1,17 @@
 import DynamicWords from "@/components/DynamicWords";
 import Header from "@/components/Header"; 
-import CornerGradient from "@/components/CornerGradient";
+import BackgroundNoise from "@/components/BackgroundNoise";
+import CursorGlow from "@/components/CursorGlow";
 
 export default function Home() {
   return (
     <div className="relative min-h-screen bg-transparent overflow-hidden">
       
-      {/* 右上角淡紫色渐变 */}
-      <CornerGradient />
+      {/* 全局淡紫色纹理 */}
+      <BackgroundNoise />
+
+      {/* 鼠标跟随光晕 */}
+      <CursorGlow />
       
       {/* ⭐⭐ 顶部 Header */}
       <Header />
