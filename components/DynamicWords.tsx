@@ -28,7 +28,7 @@ export default function DynamicWords() {
     }
 
     // ⭐ 打字速度变慢了
-    const typingSpeed = deleting ? 120 : 220;
+    const typingSpeed = deleting ? 80 : 200;
 
     const timer = setTimeout(() => {
       setSubIndex((prev) => prev + (deleting ? -1 : 1));
