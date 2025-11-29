@@ -18,7 +18,7 @@ export default function DynamicWords() {
   useEffect(() => {
     // ⭐（1）句子打完 → 停留 → 开始删除
     if (!deleting && subIndex === words[index].length) {
-      const pause = setTimeout(() => setDeleting(true), 2300);
+      const pause = setTimeout(() => setDeleting(true), 2000);
       return () => clearTimeout(pause);
     }
 
@@ -32,7 +32,7 @@ export default function DynamicWords() {
     // ⭐（3）正常打字和删除逻辑
     const timeout = setTimeout(() => {
       setSubIndex((prev) => prev + (deleting ? -1 : 1));
-    }, deleting ? 80 : 200); // 删除速度 | 打字速度
+    }, deleting ? 70 : 170); // 删除速度 | 打字速度
 
     return () => clearTimeout(timeout);
   }, [subIndex, deleting, index]);
