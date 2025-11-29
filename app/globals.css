@@ -28,14 +28,16 @@ body {
 
 @keyframes fadeOut {
   from {
-    opacity: 0.3;
+    opacity: 0.25;
+    transform: scale(1);
   }
   to {
     opacity: 0;
+    transform: scale(1.4);
   }
 }
 
 .animate-fadeOut {
-  animation: fadeOut 0.8s ease-out forwards;
+  animation: fadeOut 0.7s ease-out forwards;
 }
 
