@@ -7,15 +7,16 @@ export default function Home() {
       
       <BackgroundGrid />
 
-      <div className="relative z-10 px-10 pt-32 max-w-4xl">
-
-        <h1 className="text-6xl font-bold leading-tight">
+      <div className="relative z-10 px-10 pt-48 max-w-5xl">
+        <h1 className="text-7xl font-extrabold leading-tight">
           创造 <span className="text-purple-600">AI 员工</span>
           <br />
-          <DynamicWords />
+          <span className="text-6xl">
+            <DynamicWords />
+          </span>
         </h1>
-
       </div>
+
     </div>
   );
 }
