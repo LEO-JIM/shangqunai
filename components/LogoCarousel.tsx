@@ -4,7 +4,7 @@ import Image from "next/image";
 
 const logos = [
   { src: "/logos/N8n-logo-new.svg (1).png", w: 120 },
-  { src: "/logos/skool.png", w:115 },
+  { src: "/logos/skool.png", w:110 },
   { src: "/logos/DeepSeek-Logo.png", w: 133 },
   { src: "/logos/feishu.jpg", w: 120 },
   { src: "/logos/Google_2015_logo.svg.png", w: 117 },
