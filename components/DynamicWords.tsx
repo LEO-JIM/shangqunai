@@ -48,7 +48,7 @@ export default function DynamicWords() {
   return (
     <span>
       {words[index].substring(0, subIndex)}
-      <span className={blink ? "opacity-100" : "opacity-0"}>|</span>
+      <span className={blink ? "opacity-100" : "opacity-0"}>▌</span>
     </span>
   );
 }
