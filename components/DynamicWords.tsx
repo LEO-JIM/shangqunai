@@ -55,7 +55,7 @@ export default function DynamicWords() {
     h-[1em] 
     bg-black
     align-middle
-    translate-y-[-2px] 
+    translate-y-[-6px] 
     ${blink ? "opacity-100" : "opacity-0"}
   `}
 ></span>
