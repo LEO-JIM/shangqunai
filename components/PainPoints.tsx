@@ -4,7 +4,7 @@ const PainPoints: React.FC = () => {
   return (
     <section className="w-full py-20 px-6 md:px-8">
       <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">
-        AI 时代，遏制企业增长的五大隐形痛点
+        AI 时代，遏制企业增长的五个隐形痛点
       </h2>
 
       <div className="max-w-4xl mx-auto space-y-12 text-gray-700 leading-relaxed">
