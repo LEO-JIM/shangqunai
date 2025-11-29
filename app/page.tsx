@@ -2,6 +2,7 @@ import DynamicWords from "@/components/DynamicWords";
 import Header from "@/components/Header"; 
 import BackgroundNoise from "@/components/BackgroundNoise";
 import BackgroundGrid from "@/components/BackgroundGrid";
+import LogoCarousel from "@/components/LogoCarousel";
 
 export default function Home() {
   return (
