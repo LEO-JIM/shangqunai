@@ -7,7 +7,7 @@ const logos = [
   { src: "/logos/skool.png", w:115 },
   { src: "/logos/DeepSeek-Logo.png", w: 133 },
   { src: "/logos/feishu.jpg", w: 120 },
-  { src: "/logos/Google_2015_logo.svg.png", w: 140 },
+  { src: "/logos/Google_2015_logo.svg.png", w: 117 },
   { src: "/logos/Google_Gemini_logo_2025.svg.png", w: 120 },
   { src: "/logos/openAI.svg", w: 130 },
 ];
