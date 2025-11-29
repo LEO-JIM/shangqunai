@@ -4,6 +4,8 @@ import BackgroundNoise from "@/components/BackgroundNoise";
 import BackgroundGrid from "@/components/BackgroundGrid";
 import LogoCarousel from "@/components/LogoCarousel";
 import PainPoints from "@/components/PainPoints";
+import BusinessFeatures from "@/components/BusinessFeatures";
+import BusinessProcess from "@/components/BusinessProcess";
 
 export default function Home() {
   return (
@@ -43,6 +45,9 @@ export default function Home() {
       </div>
       <LogoCarousel />
      <PainPoints />
+      
+<BusinessFeatures />
+<BusinessProcess />
     </div>
   );
 }
