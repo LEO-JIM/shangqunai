@@ -18,7 +18,7 @@ export default function DynamicWords() {
   useEffect(() => {
     // ⭐（1）句子打完 → 停留 → 开始删除
     if (!deleting && subIndex === words[index].length) {
-      const pause = setTimeout(() => setDeleting(true), 2000);
+      const pause = setTimeout(() => setDeleting(true), 3000);
       return () => clearTimeout(pause);
     }
 
