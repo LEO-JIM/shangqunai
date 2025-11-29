@@ -10,8 +10,16 @@ export default function Home() {
       {/* 全局淡紫色纹理 */}
       <BackgroundNoise />
 
-      <BackgroundGrid />
-      
+<BackgroundGrid
+  highlights={[
+    { col: 11, row: 1 },
+    { col: 11, row: 4 },
+    { col: 8, row: 2 },
+    { col: 8, row: 5 },
+    { col: 6, row: 3 },
+  ]}
+/>
+
       {/* ⭐⭐ 顶部 Header */}
       <Header />
 
