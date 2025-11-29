@@ -4,7 +4,7 @@ export default function Header() {
       
       {/* 左上 Logo */}
       <div className="text-4xl font-semibold tracking-tight">
-        商群AI
+        商群
       </div>
 
       {/* 右侧导航 + CTA */}
