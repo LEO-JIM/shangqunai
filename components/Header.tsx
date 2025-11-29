@@ -18,7 +18,7 @@ export default function Header() {
           价格
         </a>
         <a href="#" className="text-gray-700 hover:text-black transition">
-          关于商群AI
+          关于我们
         </a>
 
         {/* “免费咨询”按钮（紫色苹果风） */}
