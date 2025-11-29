@@ -3,30 +3,39 @@
 import { useState, useEffect } from "react";
 
 export default function BackgroundGrid() {
-  const cellSize = 100; // 网格大小更大
-  const [pos, setPos] = useState({ x: -9999, y: -9999 });
+  const cellSize = 100;
 
+  const [pos, setPos] = useState({ x: -9999, y: -9999 });
+  const [viewport, setViewport] = useState({ w: 0, h: 0 });
+
+  // 获取屏幕宽高（只能在客户端执行）
   useEffect(() => {
+    setViewport({ w: window.innerWidth, h: window.innerHeight });
+
     const move = (e: MouseEvent) => {
       setPos({ x: e.clientX, y: e.clientY });
     };
+
     window.addEventListener("mousemove", move);
+
     return () => window.removeEventListener("mousemove", move);
   }, []);
 
-  // 对齐到网格
+  // 如果还没有获取到 viewport（SSR 时会是 0）
+  const isReady = viewport.w > 0;
+
+  // 对齐坐标
   const snapX = Math.floor(pos.x / cellSize) * cellSize;
   const snapY = Math.floor(pos.y / cellSize) * cellSize;
 
-  // 检查鼠标是否在“右上网格区域”
+  // ⭐ 判定鼠标是否在右上网格区域（屏幕对角线以上）
   const isInGrid =
-    // 判断鼠标是否在右上角区域（x 越大越右，y 越小越上）
-    pos.x + pos.y < window.innerWidth * 0.8; // 这是一个右上区域的判定方法，可调
+    isReady && pos.x > viewport.w * 0.3 && pos.y < viewport.h * 0.7;
 
   return (
     <div className="pointer-events-none absolute inset-0 -z-10 overflow-hidden">
 
-      {/* ⭐ 网格（右上角 + 斜线淡出） */}
+      {/* ⭐ 右上角网格 + 斜线淡出 */}
       <div
         className="absolute inset-0"
         style={{
@@ -34,37 +43,36 @@ export default function BackgroundGrid() {
             "linear-gradient(rgba(180,0,255,0.15) 1px, transparent 1px), linear-gradient(90deg, rgba(180,0,255,0.15) 1px, transparent 1px)",
           backgroundSize: `${cellSize}px ${cellSize}px`,
 
-          // ⭐ 关键：左下 → 右上 方向淡出（符合你的要求）
+          // ⭐ 正确的右上角 mask（左下无网格）
           maskImage:
-            "linear-gradient(225deg, black 0%, black 45%, transparent 70%)",
+            "linear-gradient(225deg, white 0%, white 40%, transparent 70%)",
           WebkitMaskImage:
-            "linear-gradient(225deg, black 0%, black 45%, transparent 70%)",
+            "linear-gradient(225deg, white 0%, white 40%, transparent 70%)",
 
           opacity: 0.35,
         }}
       ></div>
 
-      {/* ⭐ 鼠标经过的方格渐变光效（只在右上网格区域显示） */}
-      {isInGrid && (
+      {/* ⭐ 光标 hover 高亮（渐变柔和） */}
+      {isReady && isInGrid && (
         <div
           className="absolute"
           style={{
-            width: cellSize,
-            height: cellSize,
             left: snapX,
             top: snapY,
+            width: cellSize,
+            height: cellSize,
 
-            // ⭐ 柔和渐变，而不是突然变色
             background: `
               radial-gradient(
                 circle at center,
                 rgba(180,0,255,0.25) 0%,
-                rgba(180,0,255,0.15) 40%,
-                transparent 90%
+                rgba(180,0,255,0.12) 60%,
+                transparent 100%
               )
             `,
 
-            transition: "all 0.20s ease-out",
+            transition: "all 0.25s ease-out",
           }}
         ></div>
       )}
