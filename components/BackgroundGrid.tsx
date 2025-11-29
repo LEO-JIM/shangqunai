@@ -3,79 +3,143 @@
 import { useState, useEffect } from "react";
 
 export default function BackgroundGrid() {
-  const cellSize = 100;
+  const cell = 100;
 
   const [pos, setPos] = useState({ x: -9999, y: -9999 });
   const [viewport, setViewport] = useState({ w: 0, h: 0 });
 
-  // 获取屏幕宽高（只能在客户端执行）
+  // ⭐ 残影数组
+  const [trails, setTrails] = useState<{ x: number; y: number; id: number }[]>(
+    []
+  );
+
+  // ⭐ 默认高亮 4 个格子
+  const defaultHighlights = [
+    { x: 5 * cell, y: 2 * cell },
+    { x: 7 * cell, y: 4 * cell },
+    { x: 8 * cell, y: 1 * cell },
+    { x: 6 * cell, y: 3 * cell },
+  ];
+
   useEffect(() => {
     setViewport({ w: window.innerWidth, h: window.innerHeight });
 
     const move = (e: MouseEvent) => {
       setPos({ x: e.clientX, y: e.clientY });
+
+      // ⭐ 生成残影（多一个淡紫色格子，延迟淡出）
+      setTrails((prev) => [
+        ...prev,
+        { x: e.clientX, y: e.clientY, id: Date.now() },
+      ]);
     };
 
     window.addEventListener("mousemove", move);
-
     return () => window.removeEventListener("mousemove", move);
   }, []);
 
-  // 如果还没有获取到 viewport（SSR 时会是 0）
+  // 对齐到网格
+  const snap = (v: number) => Math.floor(v / cell) * cell;
+  const snapX = snap(pos.x);
+  const snapY = snap(pos.y);
+
   const isReady = viewport.w > 0;
 
-  // 对齐坐标
-  const snapX = Math.floor(pos.x / cellSize) * cellSize;
-  const snapY = Math.floor(pos.y / cellSize) * cellSize;
-
-  // ⭐ 判定鼠标是否在右上网格区域（屏幕对角线以上）
-  const isInGrid =
-    isReady && pos.x > viewport.w * 0.3 && pos.y < viewport.h * 0.7;
+  // ⭐ 右上角区域判定
+  const isInGrid = isReady && pos.x > viewport.w * 0.3 && pos.y < viewport.h * 0.7;
 
   return (
     <div className="pointer-events-none absolute inset-0 -z-10 overflow-hidden">
 
-      {/* ⭐ 右上角网格 + 斜线淡出 */}
+      {/* ⭐ 右上角大网格（顶部完全对齐 header） */}
       <div
         className="absolute inset-0"
         style={{
           backgroundImage:
-            "linear-gradient(rgba(180,0,255,0.15) 1px, transparent 1px), linear-gradient(90deg, rgba(180,0,255,0.15) 1px, transparent 1px)",
-          backgroundSize: `${cellSize}px ${cellSize}px`,
-
-          // ⭐ 正确的右上角 mask（左下无网格）
+            "linear-gradient(rgba(180,0,255,0.12) 1px, transparent 1px), linear-gradient(90deg, rgba(180,0,255,0.12) 1px, transparent 1px)",
+          backgroundSize: `${cell}px ${cell}px`,
           maskImage:
-            "linear-gradient(225deg, white 0%, white 40%, transparent 70%)",
+            "linear-gradient(225deg, white 0%, white 45%, transparent 70%)",
           WebkitMaskImage:
-            "linear-gradient(225deg, white 0%, white 40%, transparent 70%)",
-
+            "linear-gradient(225deg, white 0%, white 45%, transparent 70%)",
           opacity: 0.35,
+          top: "0px", // ⭐ 和 header 顶部完全对齐
         }}
       ></div>
 
-      {/* ⭐ 光标 hover 高亮（渐变柔和） */}
+      {/* ⭐ 默认浅色高亮格子 */}
+      {defaultHighlights.map((h, i) => (
+        <div
+          key={i}
+          className="absolute"
+          style={{
+            left: h.x,
+            top: h.y,
+            width: cell,
+            height: cell,
+            background: `
+              radial-gradient(
+                circle at center,
+                rgba(180,0,255,0.15) 0%,
+                rgba(180,0,255,0.12) 40%,
+                transparent 100%
+              )
+            `,
+          }}
+        ></div>
+      ))}
+
+      {/* ⭐ 移动光效（新版，超级跟手 + 科技感） */}
       {isReady && isInGrid && (
         <div
           className="absolute"
           style={{
             left: snapX,
             top: snapY,
-            width: cellSize,
-            height: cellSize,
-
+            width: cell,
+            height: cell,
             background: `
               radial-gradient(
-                circle at center,
-                rgba(180,0,255,0.25) 0%,
-                rgba(180,0,255,0.12) 60%,
+                circle,
+                rgba(180,0,255,0.35) 0%,
+                rgba(180,0,255,0.20) 40%,
+                rgba(180,0,255,0.08) 70%,
                 transparent 100%
               )
             `,
-
-            transition: "all 0.25s ease-out",
+            filter: "blur(2px)", // ⭐ 更科技的发光
+            transition: "left 0.05s ease-out, top 0.05s ease-out",
           }}
         ></div>
       )}
+
+      {/* ⭐ 残影效果（自动淡出 + 渐变，更科技） */}
+      {trails.map((t) => {
+        const tx = snap(t.x);
+        const ty = snap(t.y);
+
+        return (
+          <div
+            key={t.id}
+            className="absolute animate-fadeOut"
+            style={{
+              left: tx,
+              top: ty,
+              width: cell,
+              height: cell,
+              background: `
+                radial-gradient(
+                  circle,
+                  rgba(180,0,255,0.25) 0%,
+                  rgba(180,0,255,0.12) 40%,
+                  transparent 100%
+                )
+              `,
+              filter: "blur(1px)",
+            }}
+          ></div>
+        );
+      })}
     </div>
   );
 }
