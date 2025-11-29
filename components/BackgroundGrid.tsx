@@ -3,7 +3,6 @@
 export default function BackgroundGrid() {
   return (
     <div className="absolute inset-0 pointer-events-none overflow-hidden">
-      {/* 整体右上角倾斜背景 */}
       <div
         className="
           absolute 
@@ -34,24 +33,6 @@ export default function BackgroundGrid() {
           />
         ))}
       </div>
-
-      {/* 对角线遮罩效果 */}
-      <style jsx>{`
-        .mask-diagonal {
-          -webkit-mask-image: linear-gradient(
-            135deg,
-            transparent 0%,
-            transparent 40%,
-            black 75%
-          );
-          mask-image: linear-gradient(
-            135deg,
-            transparent 0%,
-            transparent 40%,
-            black 75%
-          );
-        }
-      `}</style>
     </div>
   );
 }
