@@ -4,7 +4,7 @@ import CornerGradient from "@/components/CornerGradient";
 
 export default function Home() {
   return (
-    <div className="relative min-h-screen bg-white overflow-hidden">
+    <div className="relative min-h-screen bg-transparent overflow-hidden">
       
       {/* 右上角淡紫色渐变 */}
       <CornerGradient />
