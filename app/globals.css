@@ -26,3 +26,16 @@ body {
   font-family: Arial, Helvetica, sans-serif;
 }
 
+@keyframes fadeOut {
+  from {
+    opacity: 0.3;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+.animate-fadeOut {
+  animation: fadeOut 0.8s ease-out forwards;
+}
+
