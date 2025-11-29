@@ -1,3 +1,5 @@
+export const revalidate = 0;
+
 import DynamicWords from "@/components/DynamicWords";
 import Header from "@/components/Header"; 
 import BackgroundNoise from "@/components/BackgroundNoise";
