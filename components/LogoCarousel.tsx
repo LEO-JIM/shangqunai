@@ -10,7 +10,7 @@ const logos = [
   { src: "/logos/Google_2015_logo.svg.png", w: 140 },
   { src: "/logos/Google_Gemini_logo_2025.svg.png", w: 120 },
   { src: "/logos/openAI.svg", w: 135 },
-  { src: "/logos/wechat.png", w: 110 }
+  { src: "/logos/wechat.png", w: 110 },
 ];
 
 export default function LogoCarousel() {
@@ -21,27 +21,29 @@ export default function LogoCarousel() {
       </h2>
 
       <div className="overflow-hidden relative">
-        <div className="flex animate-scroll space-x-16 w-max opacity-70">
+        <div className="flex animate-scroll space-x-16 w-max opacity-90">
           {logos.map((logo, i) => (
-            <Image
-              key={i}
-              src={logo}
-              alt="brand"
-              width={150}
-              height={60}
-              className="object-contain grayscale hover:grayscale-0 transition"
-            />
+            <div key={i} className="flex items-center justify-center">
+              <Image
+                src={logo.src}
+                alt="logo"
+                width={logo.w}
+                height={60}
+                className="object-contain grayscale hover:grayscale-0 transition duration-300"
+              />
+            </div>
           ))}
 
           {logos.map((logo, i) => (
-            <Image
-              key={`copy-${i}`}
-              src={logo}
-              alt="brand-copy"
-              width={150}
-              height={60}
-              className="object-contain grayscale hover:grayscale-0 transition"
-            />
+            <div key={`copy-${i}`} className="flex items-center justify-center">
+              <Image
+                src={logo.src}
+                alt="logo"
+                width={logo.w}
+                height={60}
+                className="object-contain grayscale hover:grayscale-0 transition duration-300"
+              />
+            </div>
           ))}
         </div>
       </div>
