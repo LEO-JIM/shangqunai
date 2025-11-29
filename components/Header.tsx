@@ -3,7 +3,7 @@ export default function Header() {
     <header className="fixed top-0 left-0 w-full flex justify-between items-center px-10 py-6 bg-white border-b border-gray-200 z-50">
       
       {/* 左上 Logo */}
-      <div className="text-3xl font-extrabold tracking-tight">
+      <div className="text-4xl font-semibold tracking-tight">
         商群AI
       </div>
 
