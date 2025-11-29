@@ -43,7 +43,7 @@ export default function BackgroundGrid() {
                     <div
                       className={
                         "pointer-events-auto h-20 w-20 bg-white/80 border border-[#f3eefc] shadow-sm transition-colors duration-300 " +
-                        (isAccent ? "bg-purple-50" : "hover:bg-purple-50")
+                        (isAccent ? "bg-[#f3d7ff]" : "hover:bg-[#f3d7ff]")
                       }
                       style={{
                         // 用 clip-path 把它裁成正六边形
