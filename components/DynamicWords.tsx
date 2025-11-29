@@ -19,7 +19,7 @@ export default function DynamicWords() {
   useEffect(() => {
     if (subIndex === words[index].length && !deleting) {
       // 到句尾 → 停顿 1 秒
-      setTimeout(() => setDeleting(true), 1200);
+      setTimeout(() => setDeleting(true), 1600);
       return;
     }
 
