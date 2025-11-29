@@ -18,7 +18,7 @@ export default function DynamicWords() {
   useEffect(() => {
     // ⭐（1）句子打完 → 停留 → 开始删除
     if (!deleting && subIndex === words[index].length) {
-      const pause = setTimeout(() => setDeleting(true), 3000);
+      const pause = setTimeout(() => setDeleting(true), 2300);
       return () => clearTimeout(pause);
     }
 
@@ -48,7 +48,17 @@ export default function DynamicWords() {
   return (
     <span>
       {words[index].substring(0, subIndex)}
-      <span className={blink ? "opacity-100" : "opacity-0"}>▌</span>
+      <span
+  className={`
+    inline-block 
+    w-[2px] 
+    h-[1em] 
+    bg-purple-600 
+    align-middle 
+    ${blink ? "opacity-100" : "opacity-0"}
+  `}
+></span>
+
     </span>
   );
 }
