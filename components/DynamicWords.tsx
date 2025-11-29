@@ -10,36 +10,32 @@ export default function DynamicWords() {
     "提高客户满意度"
   ];
 
-  const [index, setIndex] = useState(0);       // 当前词语序号
-  const [subIndex, setSubIndex] = useState(0); // 当前显示字数
+  const [index, setIndex] = useState(0);
+  const [subIndex, setSubIndex] = useState(0);
   const [deleting, setDeleting] = useState(false);
   const [blink, setBlink] = useState(true);
 
-  // ⭐ 修复“错误字符”关键点 → 删除到空后再换字
   useEffect(() => {
-    if (subIndex === words[index].length && !deleting) {
-      // 到句尾 → 停顿 1 秒
-      setTimeout(() => setDeleting(true), 1600);
-      return;
+    // ⭐（1）句子打完 → 停留 → 开始删除
+    if (!deleting && subIndex === words[index].length) {
+      const pause = setTimeout(() => setDeleting(true), 2000);
+      return () => clearTimeout(pause);
     }
 
-    if (subIndex === 0 && deleting) {
-      // ⭐ 删除完后，再切换单词（不会出现字符闪烁）
+    // ⭐（2）删除完毕 → 切换单词（先换 index 再开始打字，保证不会闪现字符）
+    if (deleting && subIndex === 0) {
       setDeleting(false);
       setIndex((prev) => (prev + 1) % words.length);
       return;
     }
 
-    const speed = deleting
-      ? 80   // 删除速度（更慢一点，更专业）
-      : 200;  // 打字速度（你要求变慢）
-
-    const timer = setTimeout(() => {
+    // ⭐（3）正常打字和删除逻辑
+    const timeout = setTimeout(() => {
       setSubIndex((prev) => prev + (deleting ? -1 : 1));
-    }, speed);
+    }, deleting ? 80 : 200); // 删除速度 | 打字速度
 
-    return () => clearTimeout(timer);
-  }, [subIndex, deleting, index, words]);
+    return () => clearTimeout(timeout);
+  }, [subIndex, deleting, index]);
 
   // 光标闪烁
   useEffect(() => {
