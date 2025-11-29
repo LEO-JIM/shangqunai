@@ -17,7 +17,7 @@ export default function DynamicWords() {
 
   useEffect(() => {
     if (subIndex === words[index].length + 1 && !deleting) {
-      setTimeout(() => setDeleting(true), 1200); // 停顿时间也加长
+      setTimeout(() => setDeleting(true), 1600); // 停顿时间加长
       return;
     }
 
@@ -28,7 +28,7 @@ export default function DynamicWords() {
     }
 
     // ⭐ 打字速度变慢了
-    const typingSpeed = deleting ? 80 : 180;
+    const typingSpeed = deleting ? 120 : 220;
 
     const timer = setTimeout(() => {
       setSubIndex((prev) => prev + (deleting ? -1 : 1));
