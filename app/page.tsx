@@ -16,7 +16,7 @@ export default function Home() {
     { col: 11, row: 4 },
     { col: 8, row: 2 },
     { col: 8, row: 5 },
-    { col: 6, row: 3 },
+    { col: 9, row: 3 },
   ]}
 />
 
