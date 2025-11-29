@@ -17,7 +17,7 @@ export default function DynamicWords() {
 
   useEffect(() => {
     if (subIndex === words[index].length + 1 && !deleting) {
-      setTimeout(() => setDeleting(true), 1000);
+      setTimeout(() => setDeleting(true), 1200); // 停顿时间也加长
       return;
     }
 
@@ -27,11 +27,12 @@ export default function DynamicWords() {
       return;
     }
 
-    const timeout = deleting ? 50 : 120;
+    // ⭐ 打字速度变慢了
+    const typingSpeed = deleting ? 80 : 180;
 
     const timer = setTimeout(() => {
       setSubIndex((prev) => prev + (deleting ? -1 : 1));
-    }, timeout);
+    }, typingSpeed);
 
     return () => clearTimeout(timer);
   }, [subIndex, deleting, index, words]);
@@ -44,7 +45,7 @@ export default function DynamicWords() {
   }, []);
 
   return (
-    <span className="text-purple-600">
+    <span>
       {words[index].substring(0, subIndex)}
       <span className={`${blink ? "opacity-100" : "opacity-0"}`}>|</span>
     </span>
