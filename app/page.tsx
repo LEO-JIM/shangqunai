@@ -42,7 +42,6 @@ export default function Home() {
   </p>
       </div>
       <LogoCarousel />
-    </div>
      <PainPoints />
     </div>
   );
