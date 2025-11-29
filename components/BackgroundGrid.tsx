@@ -4,7 +4,17 @@ export default function BackgroundGrid() {
   const cards = Array.from({ length: 70 });
 
   return (
-    <div className="absolute inset-0 overflow-hidden pointer-events-none">
+    <div
+  className="
+    absolute 
+    top-0 
+    right-0 
+    w-[65%] 
+    h-[70%] 
+    pointer-events-none
+    overflow-hidden
+  "
+>
       <div
         className="absolute inset-0 grid grid-cols-8 gap-6 opacity-40"
         style={{ transform: "skewY(-12deg)" }}
