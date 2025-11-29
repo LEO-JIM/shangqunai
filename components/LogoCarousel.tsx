@@ -16,7 +16,7 @@ export default function LogoCarousel() {
   return (
     <div className="w-full mt-32 py-16 bg-white/70 backdrop-blur-sm">
       <div className="max-w-5xl mx-auto">
-        <h2 className="text-center text-2xl font-semibold text-gray-900 mb-10">
+        <h2 className="text-center text-2xl font-semibold text-[#6F00FF] mb-10">
           技术生态伙伴
         </h2>
 
