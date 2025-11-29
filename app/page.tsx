@@ -18,7 +18,7 @@ export default function Home() {
             <DynamicWords />
           </span>
         </h1>
-        <p className="mt-10 max-w-2xl text-[22px] text-gray-700 leading-[1.8]">
+        <p className="mt-10 max-w-2xl text-[22px] text-gray-600 leading-[1.8]">
     我们通过深度理解业务流程，为企业定制 AI 自动化方案，<br />
     节省人力成本，提升运行效率，并实现可持续增长。
   </p>
