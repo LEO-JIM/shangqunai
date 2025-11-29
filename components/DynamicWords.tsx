@@ -53,11 +53,13 @@ export default function DynamicWords() {
     inline-block 
     w-[2px] 
     h-[1em] 
-    bg-purple-600 
-    align-middle 
+    bg-black
+    align-middle
+    translate-y-[-2px] 
     ${blink ? "opacity-100" : "opacity-0"}
   `}
 ></span>
+
 
     </span>
   );
