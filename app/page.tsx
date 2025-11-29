@@ -1,3 +1,5 @@
+export const dynamic = "force-dynamic";
+
 import DynamicWords from "@/components/DynamicWords";
 import Header from "@/components/Header"; 
 import BackgroundNoise from "@/components/BackgroundNoise";
