@@ -1,38 +1,57 @@
 "use client";
 
 export default function BackgroundGrid() {
-  const cards = Array.from({ length: 70 });
-
   return (
-    <div
-  className="
-    absolute 
-    top-0 
-    right-0 
-    w-[65%] 
-    h-[70%] 
-    pointer-events-none
-    overflow-hidden
-  "
->
+    <div className="absolute inset-0 pointer-events-none overflow-hidden">
+      {/* 整体右上角倾斜背景 */}
       <div
-        className="absolute inset-0 grid grid-cols-8 gap-6 opacity-40"
-        style={{ transform: "skewY(-12deg)" }}
+        className="
+          absolute 
+          right-[-10%] 
+          top-[-10%]
+          w-[120%] 
+          h-[120%]
+          rotate-[12deg] 
+          opacity-30
+          grid 
+          grid-cols-8 
+          gap-8
+          mask-diagonal
+        "
       >
-        {cards.map((_, i) => (
+        {[...Array(80)].map((_, i) => (
           <div
             key={i}
             className="
-              h-32 w-full rounded-xl
-              bg-purple-100
-              transition-all duration-300
-              hover:bg-purple-200
-              hover:scale-[1.02]
-              pointer-events-auto
+              w-32 
+              h-48 
+              rounded-xl 
+              bg-purple-100 
+              hover:bg-purple-200 
+              transition-all 
+              duration-500
             "
           />
         ))}
       </div>
+
+      {/* 对角线遮罩效果 */}
+      <style jsx>{`
+        .mask-diagonal {
+          -webkit-mask-image: linear-gradient(
+            135deg,
+            transparent 0%,
+            transparent 40%,
+            black 75%
+          );
+          mask-image: linear-gradient(
+            135deg,
+            transparent 0%,
+            transparent 40%,
+            black 75%
+          );
+        }
+      `}</style>
     </div>
   );
 }
