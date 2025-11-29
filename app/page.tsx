@@ -44,10 +44,9 @@ export default function Home() {
   </p>
       </div>
       <LogoCarousel />
-     <PainPoints />
-      
-<BusinessFeatures />
-<BusinessProcess />
+     <PainPoints /> 
+  <BusinessFeatures />
+  <BusinessProcess />
     </div>
   );
 }
