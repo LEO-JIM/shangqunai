@@ -1,11 +1,11 @@
 import DynamicWords from "@/components/DynamicWords";
 import Header from "@/components/Header"; 
-import BackgroundGrid from "@/components/Backgroundgrid";
+import BackgroundGrid from "@/components/BackgroundGrid";
 export default function Home() {
   return (
     <div className="relative min-h-screen bg-white">
       {/* 背景卡片网格 */}
-      <Backgroundgrid />
+      <BackgroundGrid />
       {/* ⭐⭐ 顶部 Header */}
       <Header />
 
