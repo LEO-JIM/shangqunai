@@ -39,7 +39,7 @@ export default function Home() {
     节省人力成本，提升运行效率，并实现可持续增长。
   </p>
       </div>
-
+      <LogoCarousel />
     </div>
   );
 }
