@@ -1,7 +1,7 @@
 import DynamicWords from "@/components/DynamicWords";
 import Header from "@/components/Header"; 
 import BackgroundNoise from "@/components/BackgroundNoise";
-import CursorGlow from "@/components/CursorGlow";
+import BackgroundGrid from "@/components/BackgroundGrid";
 
 export default function Home() {
   return (
@@ -10,8 +10,7 @@ export default function Home() {
       {/* 全局淡紫色纹理 */}
       <BackgroundNoise />
 
-      {/* 鼠标跟随光晕 */}
-      <CursorGlow />
+      <BackgroundGrid />
       
       {/* ⭐⭐ 顶部 Header */}
       <Header />
