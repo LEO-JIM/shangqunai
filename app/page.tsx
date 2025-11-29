@@ -2,7 +2,8 @@ import DynamicWords from "@/components/DynamicWords";
 import Header from "@/components/Header"; 
 export default function Home() {
   return (
-    <div className="relative min-h-screen bg-white">
+    <div className="relative min-h-screen bg-gradient-to-br from-purple-50 via-white to-purple-100">
+
 
       {/* ⭐⭐ 顶部 Header */}
       <Header />
