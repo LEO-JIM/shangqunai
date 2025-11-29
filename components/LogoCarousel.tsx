@@ -3,12 +3,14 @@
 import Image from "next/image";
 
 const logos = [
-  "/logos/n8n.png",
+  "/logos/N8n-logo-new.svg (1).png",
   "/logos/skool.png",
-  "/logos/make.png",
-  "/logos/openai.png",
-  "/logos/airtable.png",
-  "/logos/stripe.png",
+  "/logos/DeepSeek-Logo.png",
+  "/logos/feishu.jpg",
+  "/logos/Google_2015_logo.svg.png",
+  "/logos/Google_Gemini_logo_2025.svg",
+  "/logos/openAI.svg",
+  "/logos/wechat.png"
 ];
 
 export default function LogoCarousel() {
