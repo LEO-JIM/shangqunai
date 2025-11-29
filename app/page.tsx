@@ -1,6 +1,6 @@
 import DynamicWords from "@/components/DynamicWords";
 import Header from "@/components/Header"; 
-import BackgroundGrid from "@/components/BackgroundGrid";
+import BackgroundGrid from "@/components/Backgroundgrid";
 export default function Home() {
   return (
     <div className="relative min-h-screen bg-white">
