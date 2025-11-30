@@ -19,7 +19,7 @@ export default function DynamicWords() {
   useEffect(() => {
     // ⭐（1）句子打完 → 停留 → 开始删除
     if (!deleting && subIndex === words[index].length) {
-      const pause = setTimeout(() => setDeleting(true), 2500); // 停留时间稍微加长到 2.5s，让老板看清楚
+      const pause = setTimeout(() => setDeleting(true), 2000); 
       return () => clearTimeout(pause);
     }
 
