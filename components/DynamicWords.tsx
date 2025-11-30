@@ -4,9 +4,10 @@ import { useState, useEffect } from "react";
 
 export default function DynamicWords() {
   const words = [
-    "减少 45% 成本",
-    "每周节省 21 小时",
-    "驱动 30% 利润增长",
+    "减少 45% 运营成本",    //稍微加长了一点描述，显得更完整
+    "每周节省 21 小时工时",
+    "驱动 30% 净利润增长",
+    "实现 24/7 业务自动运转",
     "提高客户满意度"
   ];
 
@@ -18,21 +19,21 @@ export default function DynamicWords() {
   useEffect(() => {
     // ⭐（1）句子打完 → 停留 → 开始删除
     if (!deleting && subIndex === words[index].length) {
-      const pause = setTimeout(() => setDeleting(true), 2000);
+      const pause = setTimeout(() => setDeleting(true), 2500); // 停留时间稍微加长到 2.5s，让老板看清楚
       return () => clearTimeout(pause);
     }
 
-    // ⭐（2）删除完毕 → 切换单词（先换 index 再开始打字，保证不会闪现字符）
+    // ⭐（2）删除完毕 → 切换单词
     if (deleting && subIndex === 0) {
       setDeleting(false);
       setIndex((prev) => (prev + 1) % words.length);
       return;
     }
 
-    // ⭐（3）正常打字和删除逻辑
+    // ⭐（3）打字和删除逻辑
     const timeout = setTimeout(() => {
       setSubIndex((prev) => prev + (deleting ? -1 : 1));
-    }, deleting ? 70 : 160); // 删除速度 | 打字速度
+    }, deleting ? 50 : 100); // 稍微调快了打字速度，显得更流畅
 
     return () => clearTimeout(timeout);
   }, [subIndex, deleting, index]);
@@ -46,21 +47,23 @@ export default function DynamicWords() {
   }, []);
 
   return (
-    <span>
-      {words[index].substring(0, subIndex)}
+    <span className="text-slate-900 inline-flex items-center">
+      {/* 文字部分 */}
+      <span>{words[index].substring(0, subIndex)}</span>
+      
+      {/* 光标部分 - 改为蓝色，高度和位置微调 */}
       <span
-  className={`
-    inline-block 
-    w-[2px] 
-    h-[1em] 
-    bg-black
-    align-middle
-    translate-y-[-8px] 
-    ${blink ? "opacity-100" : "opacity-0"}
-  `}
-></span>
-
-
+        className={`
+          ml-1
+          inline-block 
+          w-[4px] 
+          h-[0.9em] 
+          bg-blue-600 
+          align-baseline
+          ${blink ? "opacity-100" : "opacity-0"}
+        `}
+        style={{ marginBottom: "-0.1em" }} // 微调光标底部对齐
+      ></span>
     </span>
   );
 }
