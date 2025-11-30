@@ -6,7 +6,6 @@ const steps = [
   {
     step: "01",
     title: "业务梳理与诊断",
-    sub: "Discovery & Audit",
     desc: [
       {
         head: "精准定位痛点",
@@ -21,11 +20,10 @@ const steps = [
   {
     step: "02",
     title: "流程可视化设计",
-    sub: "Visual Blueprint",
     desc: [
       {
         head: "业务逻辑透明化",
-        text: "利用 Excalidraw 将您脑海中的业务流程画成清晰的导图。数据怎么流、AI 哪里介入，一眼便知。",
+        text: "利用 Excalidraw 将您脑海中的业务流程画成清晰的流程图。数据怎么流、AI 哪里介入，一眼便知。",
       },
       {
         head: "确认执行标准",
@@ -36,7 +34,6 @@ const steps = [
   {
     step: "03",
     title: "方案确认与定稿",
-    sub: "Confirmation",
     desc: [
       {
         head: "所见即所得",
@@ -51,7 +48,6 @@ const steps = [
   {
     step: "04",
     title: "私有化部署交付",
-    sub: "Secure Deployment",
     desc: [
       {
         head: "数据绝对安全",
@@ -66,7 +62,6 @@ const steps = [
   {
     step: "05",
     title: "持续优化与陪跑",
-    sub: "Continuous Support",
     desc: [
       {
         head: "越用越聪明",
