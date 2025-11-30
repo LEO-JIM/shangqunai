@@ -12,7 +12,7 @@ export default function Header() {
 
         {/* 文本导航按钮 - 增加隐藏式响应 (hidden md:flex) 以防手机端挤压，且颜色更深 */}
         <nav className="hidden md:flex gap-6">
-          <a href="#" className="text-sm font-medium text-gray-600 hover:text-blue-600 transition-colors">
+          <a href="/cases" className="text-sm font-medium text-gray-600 hover:text-blue-600 transition-colors">
             案例
           </a>
           <a href="#pricing" className="text-sm font-medium text-gray-600 hover:text-blue-600 transition-colors">
