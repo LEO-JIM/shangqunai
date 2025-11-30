@@ -1,26 +1,33 @@
-// app/cases/[slug]/page.tsx
 import React from "react";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { CASE_STUDIES } from "@/lib/casesData";
+import { CASE_STUDIES } from "@/lib/casesData"; 
 
 // 图标组件
 const Icons = {
   ArrowLeft: () => <svg className="w-4 h-4 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 19l-7-7m0 0l7-7m-7 7h18" /></svg>,
 };
 
-// 重点：Next.js 15 要求 params 是 Promise，但也兼容旧版写法。
-// 我们这里使用标准的 Server Component 写法。
-export default function CaseDetail({ params }: { params: { slug: string } }) {
+// 定义参数类型
+type Props = {
+  params: Promise<{ slug: string }>;
+};
+
+// 👇 必须是 async 函数
+export default async function CaseDetail({ params }: Props) {
   
-  // 1. 获取 ID
-  const slug = params.slug;
+  // 👇 关键：在 Next.js 15 中，必须先 await params
+  const { slug } = await params;
+
+  // 调试：在终端(不是浏览器控制台)可以看到这行打印
+  console.log("正在查找 Slug:", slug);
 
   // 2. 查找数据
   const caseItem = CASE_STUDIES.find((c) => c.id === slug);
 
-  // 3. 找不到则 404
+  // 3. 找不到则返回 404 页面
   if (!caseItem) {
+    console.log("未找到数据，触发 404");
     return notFound();
   }
 
@@ -73,10 +80,11 @@ export default function CaseDetail({ params }: { params: { slug: string } }) {
                   n8n_workflow_v1.0.json
                 </span>
               </div>
+              {/* 注意：因为去掉了 use client，这里普通的 img 标签依然有效 */}
               <img 
                 src={caseItem.workflowImage} 
                 alt="n8n Automation Workflow" 
-                className="w-full h-auto object-cover bg-white transition-transform duration-700 group-hover:scale-105"
+                className="w-full h-auto object-cover bg-white"
               />
             </div>
           )}
