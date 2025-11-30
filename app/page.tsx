@@ -8,7 +8,7 @@ import LogoCarousel from "@/components/LogoCarousel";
 import PainPoints from "@/components/PainPoints";
 import BusinessFeatures from "@/components/BusinessFeatures";
 import BusinessProcess from "@/components/BusinessProcess";
-
+import Pricing from '@/components/Pricing';
 export default function Home() {
   return (
     <div className="relative min-h-screen bg-transparent overflow-hidden">
@@ -51,6 +51,7 @@ export default function Home() {
      <PainPoints /> 
   <BusinessFeatures />
   <BusinessProcess />
+      <Pricing />
     </div>
   );
 }
