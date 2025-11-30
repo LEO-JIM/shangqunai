@@ -10,10 +10,10 @@ const Footer = () => {
     <footer className="bg-slate-900 text-slate-300 py-12 border-t border-slate-800">
       <div className="max-w-7xl mx-auto px-6 md:px-8">
         
-        {/* 保持 4 列布局，但内容会更紧凑 */}
+        {/* 4列布局 */}
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-12">
           
-          {/* 1. 公司信息 (占用 2 列，保持不变) */}
+          {/* 1. 公司信息 (占用 2 列) */}
           <div className="col-span-1 md:col-span-2">
             <h3 className="text-white text-lg font-bold mb-4 tracking-wide">
               广州商群人工智能科技有限公司
@@ -23,7 +23,7 @@ const Footer = () => {
             </p>
           </div>
 
-          {/* 2. 导航 (占用 1 列，保持不变) */}
+          {/* 2. 导航 (占用 1 列) */}
           <div className="col-span-1 md:col-span-1">
             <h3 className="text-white text-sm font-semibold uppercase tracking-wider mb-4">
               导航
@@ -37,12 +37,10 @@ const Footer = () => {
           </div>
 
           {/* 3. 关注动态 (占用 1 列) */}
-          {/* 修改点：去掉了 md:text-right，让它自然左对齐，紧挨着导航 */}
           <div className="col-span-1 md:col-span-1">
             <h3 className="text-white text-sm font-semibold uppercase tracking-wider mb-4">
               关注动态
             </h3>
-            {/* 修改点：去掉了 md:justify-end，保持左对齐 */}
             <div className="flex space-x-4">
               {/* 小红书 Link */}
               <a 
@@ -62,14 +60,21 @@ const Footer = () => {
         {/* 下半部分：版权与备案 */}
         <div className="border-t border-slate-800 pt-8 flex flex-col md:flex-row justify-between items-center text-xs text-slate-500">
           
-          <div className="mb-4 md:mb-0 text-center md:text-left">
+          <div className="mb-4 md:mb-0 text-center md:text-left flex flex-col md:flex-row md:items-center md:space-x-4 space-y-2 md:space-y-0">
             <p>&copy; {currentYear} 广州商群人工智能科技有限公司. All rights reserved.</p>
-            {/* 备案信息占位 */}
-            {/* <div className="mt-2">
-              <a href="https://beian.miit.gov.cn/" target="_blank" className="hover:text-white">
-                粤ICP备xxxxxxxx号
-              </a>
-            </div> */}
+            
+            {/* 分隔线 (在大屏幕显示) */}
+            <span className="hidden md:inline-block text-slate-700">|</span>
+
+            {/* ICP 备案信息 */}
+            <a 
+              href="https://beian.miit.gov.cn/" 
+              target="_blank" 
+              rel="noreferrer"
+              className="hover:text-white transition-colors"
+            >
+              粤ICP备2025491916号
+            </a>
           </div>
 
           <div className="flex space-x-6">
