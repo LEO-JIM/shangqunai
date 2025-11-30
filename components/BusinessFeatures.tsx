@@ -84,13 +84,13 @@ const BusinessFeatures: React.FC = () => {
       title: "人机协作，各司其职",
       icon: <Icons.Coop />,
       description:
-        "没有 AI 能完全接管一个岗位。让 AI 吞噬枯燥的重复杂事，把您的团队从低效劳动中解放出来，专注于判断、创意与高价值产出。",
+        "没有 AI 能完全接管一个岗位。让 AI 负责枯燥的重复杂事，把您的团队从低效劳动中解放出来，专注于判断、创意与高价值产出。",
     },
     {
       title: "让软件迁就业务",
       icon: <Icons.Adapt />,
       description:
-        "拒绝“丢个模板就跑”的交付。所有流程均围绕您的业务现状定制，最大程度保留团队习惯，通过平滑过渡，让系统真正融入业务。",
+        "拒绝“丢个模板就跑”的交付。所有流程均围绕您的业务现状定制，最大程度保留团队习惯，通过平滑过渡，让 AI 工作流真正融入业务。",
     },
     {
       title: "小步快跑，拒绝 PPT 革命",
@@ -109,7 +109,7 @@ const BusinessFeatures: React.FC = () => {
             我们的核心承诺
           </h2>
           <p className="text-xl text-slate-600 max-w-3xl mx-auto font-medium">
-            用最务实的方式，为您构建安全、稳定、以人为本的自动化体系
+            用最务实的方式，为您构建安全、稳定、ROI高的 AI 自动化体系
           </p>
           <p className="mt-4 text-slate-500 max-w-2xl mx-auto">
             从技术选型到落地交付，我们坚持 6 项基本原则。
