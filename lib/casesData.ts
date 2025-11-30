@@ -24,6 +24,7 @@ export interface CaseStudy {
 
   // 底部数据成果
   results: {
+    icon: string;
     text: string;
     subtext: string;
   }[];
