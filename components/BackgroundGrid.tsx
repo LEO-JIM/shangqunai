@@ -29,7 +29,7 @@ export default function BackgroundGrid({ highlights = [] }: Props) {
       const y = e.clientY;
       setPos({ x, y });
 
-      // 逻辑判定：只在右上区域记录残影
+      // 逻辑判定：只在右上区域记录残影（大约右边 70%，上面 65% 的区域）
       const inRightTop = x > w * 0.3 && y < h * 0.65;
       if (inRightTop) {
         setTrails((prev) => {
@@ -58,10 +58,10 @@ export default function BackgroundGrid({ highlights = [] }: Props) {
 
   return (
     <div className="pointer-events-none absolute inset-0 -z-10 overflow-hidden">
-      {/* 灰色网格线 
-        ⭐ 关键修复：maskImage 确保左下角完全消失 
-        linear-gradient(225deg, white 0%, white 40%, transparent 60%) 
-        意味着：从右上角(white)开始，到中间偏左下(transparent)结束，左下角彻底透明。
+      {/* ⭐ 核心修复：灰色网格线背景
+        使用了径向遮罩 (radial-gradient)，以右上角 (100% 0%) 为中心。
+        离右上角越近越可见 (white)，超过 65% 的距离后完全透明 (transparent)。
+        这能确保左下角的文字区域绝对干净。
       */}
       <div
         className="absolute inset-0"
@@ -70,13 +70,13 @@ export default function BackgroundGrid({ highlights = [] }: Props) {
             "linear-gradient(rgba(148, 163, 184, 0.15) 1px, transparent 1px), linear-gradient(90deg, rgba(148, 163, 184, 0.15) 1px, transparent 1px)",
           backgroundSize: `${CELL}px ${CELL}px`,
           
-          // 这里控制“左下角无网格”的视觉效果
+          // 修改处：使用以右上角为中心的径向渐变遮罩
           maskImage:
-            "linear-gradient(225deg, white 0%, white 40%, transparent 60%)",
+            "radial-gradient(circle at 100% 0%, white 0%, white 35%, transparent 65%)",
           WebkitMaskImage:
-            "linear-gradient(225deg, white 0%, white 40%, transparent 60%)",
+            "radial-gradient(circle at 100% 0%, white 0%, white 35%, transparent 65%)",
             
-          opacity: 0.6,
+          opacity: 0.7, // 稍微增加了一点点整体不透明度，让右上角的网格更清晰一点
         }}
       />
 
@@ -91,7 +91,7 @@ export default function BackgroundGrid({ highlights = [] }: Props) {
             width: CELL,
             height: CELL,
             background:
-              "radial-gradient(ellipse at center, rgba(59, 130, 246, 0.12) 0%, rgba(59, 130, 246, 0.05) 50%, transparent 100%)",
+              "radial-gradient(ellipse at center, rgba(59, 130, 246, 0.15) 0%, rgba(59, 130, 246, 0.05) 50%, transparent 100%)",
             filter: "blur(1px)",
           }}
         />
@@ -107,7 +107,7 @@ export default function BackgroundGrid({ highlights = [] }: Props) {
             width: CELL,
             height: CELL,
             background:
-              "radial-gradient(ellipse at center, rgba(37, 99, 235, 0.30) 0%, rgba(37, 99, 235, 0.15) 40%, rgba(37, 99, 235, 0.02) 80%, transparent 100%)",
+              "radial-gradient(ellipse at center, rgba(37, 99, 235, 0.35) 0%, rgba(37, 99, 235, 0.15) 40%, rgba(37, 99, 235, 0.02) 80%, transparent 100%)",
             filter: "blur(2px)",
             transition: "left 0.05s ease-out, top 0.05s ease-out",
           }}
@@ -125,7 +125,7 @@ export default function BackgroundGrid({ highlights = [] }: Props) {
             width: CELL,
             height: CELL,
             background:
-              "radial-gradient(ellipse at center, rgba(37, 99, 235, 0.20) 0%, rgba(37, 99, 235, 0.08) 50%, transparent 100%)",
+              "radial-gradient(ellipse at center, rgba(37, 99, 235, 0.25) 0%, rgba(37, 99, 235, 0.10) 50%, transparent 100%)",
             filter: "blur(2px)",
           }}
         />
