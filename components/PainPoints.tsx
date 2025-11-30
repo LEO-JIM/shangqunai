@@ -48,7 +48,7 @@ const painPoints = [
     desc: [
       "概念听了很多，但一落到自己业务上就束手无策。",
       "分不清哪些工作能用 AI 做、哪些绝对不能做。",
-      "核心痛点：知道 AI 很强，但不知道它能具体帮你什么。",
+      "知道 AI 很强，但不知道它能具体帮你什么。", // 1. 删除了“核心痛点：”
     ],
   },
   {
@@ -68,7 +68,7 @@ const painPoints = [
     desc: [
       "用 AI 写文案、总结资料，但这些对利润提升非常有限。",
       "真正费时费力、影响交付的流程，从来没人系统化优化。",
-      "核心痛点：你知道能更高效，但不知道 AI 的“深层用法”怎么落地。",
+      "你知道能更高效，但不知道 AI 的“深层用法”怎么落地。", // 1. 删除了“核心痛点：”
     ],
   },
   {
@@ -88,7 +88,7 @@ const painPoints = [
     desc: [
       "复制粘贴、写重复报告、整理数据占掉大部分时间。",
       "看似都在忙，但忙的都是低价值、耗时间的事。",
-      "核心痛点：越忙越乱，越乱越忙，效率迟迟上不来。",
+      "越忙越乱，越乱越忙，效率迟迟上不来。", // 1. 删除了“核心痛点：”
     ],
   },
 ];
@@ -155,20 +155,23 @@ const PainPoints: React.FC = () => {
           ))}
 
           {/* Card 6: The Solution */}
-          <div className="flex flex-col justify-center items-center p-8 rounded-2xl bg-gray-900 text-white text-center shadow-xl transform md:scale-105 transition-transform duration-300">
+          {/* 2. 移除了 transform md:scale-105，使黑色卡片大小与其他卡片一致 */}
+          <div className="flex flex-col justify-center items-center p-8 rounded-2xl bg-gray-900 text-white text-center shadow-xl transition-transform duration-300">
             <h3 className="text-xl font-bold mb-4">
               这些问题，<br/>也是我们的出发点
             </h3>
+            {/* 4. 修改了文案，使其更专业、简洁 */}
             <p className="text-gray-400 text-sm mb-8 leading-relaxed">
-              别让技术障碍拖慢您的脚步。<br/>看看我们如何通过“严选技术”与“自动化体系”为您破局。
+              别让技术障碍成为发展瓶颈。<br/>我们提供务实的 AI 自动化方案，从根源解决效率难题。
             </p>
             <div className="animate-bounce mt-2">
               <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
               </svg>
             </div>
+            {/* 3. 将提示文案修改为中文 */}
             <p className="text-xs text-gray-500 mt-4 uppercase tracking-widest">
-              Scroll For Solution
+              下滑查看解决方案
             </p>
           </div>
         </div>
