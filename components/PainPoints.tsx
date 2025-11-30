@@ -112,18 +112,15 @@ const PainPoints: React.FC = () => {
           {painPoints.map((item, idx) => (
             <div
               key={idx}
-              // 修改：Hover 边框颜色改为 blue-100，背景改为 blue-50/30 (极淡蓝)
               className="group relative bg-white rounded-2xl p-8 shadow-sm border border-gray-100 hover:shadow-lg hover:border-blue-100 hover:bg-blue-50/30 transition-all duration-300"
             >
               {/* Decorative Number Background */}
-              {/* 修改：数字水印颜色改为 slate-100，Hover 时变为 blue-50 */}
               <div className="absolute top-4 right-6 text-6xl font-black text-slate-100 group-hover:text-blue-50 transition-colors pointer-events-none select-none">
                 {item.id}
               </div>
 
               {/* Icon & Title */}
               <div className="relative z-10 mb-6">
-                {/* 修改：图标背景改为 blue-50，文字 blue-600，Hover 时反转 */}
                 <div className="w-12 h-12 bg-blue-50 text-blue-600 rounded-xl flex items-center justify-center mb-4 group-hover:bg-blue-600 group-hover:text-white transition-colors duration-300">
                   {item.icon}
                 </div>
@@ -146,10 +143,8 @@ const PainPoints: React.FC = () => {
                       }`}
                     >
                       {!isLast && (
-                        // 修改：小圆点 Hover 时变为蓝色
                         <span className="mt-1.5 mr-2.5 min-w-[6px] h-1.5 rounded-full bg-gray-300 group-hover:bg-blue-400 transition-colors"></span>
                       )}
-                      {/* 修改：感叹号改为蓝色 */}
                       {isLast && <span className="text-blue-600 mr-2 font-bold">!</span>}
                       {d}
                     </li>
@@ -159,20 +154,33 @@ const PainPoints: React.FC = () => {
             </div>
           ))}
 
-          {/* Card 6: The Solution */}
-          <div className="flex flex-col justify-center items-center p-8 rounded-2xl bg-slate-900 text-white text-center shadow-xl transition-transform duration-300">
-            <h3 className="text-xl font-bold mb-4">
+          {/* Card 6: The Solution (添加了强动效) */}
+          <div className="
+            relative group cursor-pointer
+            flex flex-col justify-center items-center 
+            p-8 rounded-2xl 
+            bg-slate-900 
+            text-white text-center 
+            shadow-xl 
+            transition-all duration-300 ease-out
+            hover:-translate-y-2 
+            hover:shadow-2xl hover:shadow-blue-600/30
+            hover:bg-slate-800
+            border border-slate-800 hover:border-blue-500/50
+          ">
+            <h3 className="text-xl font-bold mb-4 group-hover:text-blue-200 transition-colors">
               这些问题，<br/>也是我们的出发点
             </h3>
             <p className="text-slate-400 text-sm mb-8 leading-relaxed">
               别让技术障碍成为发展瓶颈。<br/>我们提供务实的 AI 自动化方案，从根源解决效率难题。
             </p>
-            <div className="animate-bounce mt-2">
+            {/* 箭头动画：原本 bounce，现在悬停时加剧 */}
+            <div className="animate-bounce mt-2 p-2 rounded-full bg-slate-800 group-hover:bg-blue-600 transition-colors duration-300">
               <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
               </svg>
             </div>
-            <p className="text-xs text-slate-500 mt-4 uppercase tracking-widest">
+            <p className="text-xs text-slate-500 mt-4 uppercase tracking-widest group-hover:text-blue-300 transition-colors">
               下滑查看解决方案
             </p>
           </div>
