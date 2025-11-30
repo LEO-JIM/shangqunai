@@ -32,7 +32,7 @@ export default function DynamicWords() {
     // ⭐（3）正常打字和删除逻辑
     const timeout = setTimeout(() => {
       setSubIndex((prev) => prev + (deleting ? -1 : 1));
-    }, deleting ? 70 : 170); // 删除速度 | 打字速度
+    }, deleting ? 70 : 160); // 删除速度 | 打字速度
 
     return () => clearTimeout(timeout);
   }, [subIndex, deleting, index]);
