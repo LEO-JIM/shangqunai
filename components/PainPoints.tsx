@@ -2,7 +2,7 @@
 
 import React from "react";
 
-// 定义简单的 SVG 图标组件，不需要外部依赖
+// 定义简单的 SVG 图标组件
 const Icons = {
   Alert: () => (
     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -48,7 +48,7 @@ const painPoints = [
     desc: [
       "概念听了很多，但一落到自己业务上就束手无策。",
       "分不清哪些工作能用 AI 做、哪些绝对不能做。",
-      "知道 AI 很强，但不知道它能具体帮你什么。", // 1. 删除了“核心痛点：”
+      "知道 AI 很强，但不知道它能具体帮你什么。",
     ],
   },
   {
@@ -68,7 +68,7 @@ const painPoints = [
     desc: [
       "用 AI 写文案、总结资料，但这些对利润提升非常有限。",
       "真正费时费力、影响交付的流程，从来没人系统化优化。",
-      "你知道能更高效，但不知道 AI 的“深层用法”怎么落地。", // 1. 删除了“核心痛点：”
+      "你知道能更高效，但不知道 AI 的“深层用法”怎么落地。",
     ],
   },
   {
@@ -88,21 +88,21 @@ const painPoints = [
     desc: [
       "复制粘贴、写重复报告、整理数据占掉大部分时间。",
       "看似都在忙，但忙的都是低价值、耗时间的事。",
-      "越忙越乱，越乱越忙，效率迟迟上不来。", // 1. 删除了“核心痛点：”
+      "越忙越乱，越乱越忙，效率迟迟上不来。",
     ],
   },
 ];
 
 const PainPoints: React.FC = () => {
   return (
-    <section className="w-full py-24 px-6 md:px-8 bg-gray-50 border-b border-gray-200">
+    <section className="w-full py-24 px-6 md:px-8 bg-white border-b border-gray-100">
       <div className="max-w-6xl mx-auto">
         {/* Header */}
         <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
-            AI 时代，遏制企业增长的<span className="text-red-600"> 5 个隐形痛点</span>
+          <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-6">
+            AI 时代，遏制企业增长的<span className="text-blue-600"> 5 个隐形痛点</span>
           </h2>
-          <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+          <p className="text-lg text-slate-600 max-w-2xl mx-auto">
             如果您在业务中感到阻力，很可能是陷入了以下困局。
           </p>
         </div>
@@ -112,19 +112,22 @@ const PainPoints: React.FC = () => {
           {painPoints.map((item, idx) => (
             <div
               key={idx}
-              className="group relative bg-white rounded-2xl p-8 shadow-sm border border-gray-100 hover:shadow-lg hover:border-red-100 transition-all duration-300"
+              // 修改：Hover 边框颜色改为 blue-100，背景改为 blue-50/30 (极淡蓝)
+              className="group relative bg-white rounded-2xl p-8 shadow-sm border border-gray-100 hover:shadow-lg hover:border-blue-100 hover:bg-blue-50/30 transition-all duration-300"
             >
               {/* Decorative Number Background */}
-              <div className="absolute top-4 right-6 text-6xl font-black text-gray-100/50 group-hover:text-red-50/80 transition-colors pointer-events-none select-none">
+              {/* 修改：数字水印颜色改为 slate-100，Hover 时变为 blue-50 */}
+              <div className="absolute top-4 right-6 text-6xl font-black text-slate-100 group-hover:text-blue-50 transition-colors pointer-events-none select-none">
                 {item.id}
               </div>
 
               {/* Icon & Title */}
               <div className="relative z-10 mb-6">
-                <div className="w-12 h-12 bg-red-50 text-red-600 rounded-xl flex items-center justify-center mb-4 group-hover:bg-red-500 group-hover:text-white transition-colors duration-300">
+                {/* 修改：图标背景改为 blue-50，文字 blue-600，Hover 时反转 */}
+                <div className="w-12 h-12 bg-blue-50 text-blue-600 rounded-xl flex items-center justify-center mb-4 group-hover:bg-blue-600 group-hover:text-white transition-colors duration-300">
                   {item.icon}
                 </div>
-                <h3 className="text-lg font-bold text-gray-900 leading-tight pr-4">
+                <h3 className="text-lg font-bold text-slate-900 leading-tight pr-4">
                   {item.title}
                 </h3>
               </div>
@@ -138,14 +141,16 @@ const PainPoints: React.FC = () => {
                       key={i} 
                       className={`flex items-start text-sm leading-relaxed ${
                         isLast 
-                          ? "font-semibold text-gray-800 mt-4 pt-4 border-t border-gray-100" 
-                          : "text-gray-600"
+                          ? "font-semibold text-slate-800 mt-4 pt-4 border-t border-gray-100" 
+                          : "text-slate-600"
                       }`}
                     >
                       {!isLast && (
-                        <span className="mt-1.5 mr-2.5 min-w-[6px] h-1.5 rounded-full bg-gray-300 group-hover:bg-red-400 transition-colors"></span>
+                        // 修改：小圆点 Hover 时变为蓝色
+                        <span className="mt-1.5 mr-2.5 min-w-[6px] h-1.5 rounded-full bg-gray-300 group-hover:bg-blue-400 transition-colors"></span>
                       )}
-                      {isLast && <span className="text-red-500 mr-2 font-bold">!</span>}
+                      {/* 修改：感叹号改为蓝色 */}
+                      {isLast && <span className="text-blue-600 mr-2 font-bold">!</span>}
                       {d}
                     </li>
                   );
@@ -155,13 +160,11 @@ const PainPoints: React.FC = () => {
           ))}
 
           {/* Card 6: The Solution */}
-          {/* 2. 移除了 transform md:scale-105，使黑色卡片大小与其他卡片一致 */}
-          <div className="flex flex-col justify-center items-center p-8 rounded-2xl bg-gray-900 text-white text-center shadow-xl transition-transform duration-300">
+          <div className="flex flex-col justify-center items-center p-8 rounded-2xl bg-slate-900 text-white text-center shadow-xl transition-transform duration-300">
             <h3 className="text-xl font-bold mb-4">
               这些问题，<br/>也是我们的出发点
             </h3>
-            {/* 4. 修改了文案，使其更专业、简洁 */}
-            <p className="text-gray-400 text-sm mb-8 leading-relaxed">
+            <p className="text-slate-400 text-sm mb-8 leading-relaxed">
               别让技术障碍成为发展瓶颈。<br/>我们提供务实的 AI 自动化方案，从根源解决效率难题。
             </p>
             <div className="animate-bounce mt-2">
@@ -169,8 +172,7 @@ const PainPoints: React.FC = () => {
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
               </svg>
             </div>
-            {/* 3. 将提示文案修改为中文 */}
-            <p className="text-xs text-gray-500 mt-4 uppercase tracking-widest">
+            <p className="text-xs text-slate-500 mt-4 uppercase tracking-widest">
               下滑查看解决方案
             </p>
           </div>
