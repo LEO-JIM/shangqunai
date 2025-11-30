@@ -1,28 +1,31 @@
-"use client";
-
+// app/cases/[slug]/page.tsx
 import React from "react";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { CASE_STUDIES } from "@/lib/casesData"; // 引入第一步写的数据
+import { CASE_STUDIES } from "@/lib/casesData";
 
 // 图标组件
 const Icons = {
   ArrowLeft: () => <svg className="w-4 h-4 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 19l-7-7m0 0l7-7m-7 7h18" /></svg>,
 };
 
+// 重点：Next.js 15 要求 params 是 Promise，但也兼容旧版写法。
+// 我们这里使用标准的 Server Component 写法。
 export default function CaseDetail({ params }: { params: { slug: string } }) {
-  // 1. 获取 URL 里的 slug (比如 'property-management')
-  // 2. 去数据文件里找对应的案例
-  const caseItem = CASE_STUDIES.find((c) => c.id === params.slug);
+  
+  // 1. 获取 ID
+  const slug = params.slug;
 
-  // 3. 如果找不到，显示 404 页面
+  // 2. 查找数据
+  const caseItem = CASE_STUDIES.find((c) => c.id === slug);
+
+  // 3. 找不到则 404
   if (!caseItem) {
     return notFound();
   }
 
   return (
     <main className="min-h-screen bg-white">
-      {/* 顶部留白，防止被 Header 遮挡 */}
       <div className="pt-24 pb-20 px-6 md:px-8 max-w-4xl mx-auto">
         
         {/* 返回按钮 */}
@@ -31,7 +34,7 @@ export default function CaseDetail({ params }: { params: { slug: string } }) {
           返回案例列表
         </Link>
 
-        {/* 1. 标题区 */}
+        {/* 标题区 */}
         <div className="mb-12">
           <div className="inline-block px-3 py-1 bg-blue-50 text-blue-600 text-xs font-bold rounded-full mb-4 uppercase">
             {caseItem.category}
@@ -41,7 +44,7 @@ export default function CaseDetail({ params }: { params: { slug: string } }) {
           </h1>
         </div>
 
-        {/* 2. 核心数据 */}
+        {/* 核心数据 */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-16">
           {caseItem.results.map((res, idx) => (
             <div key={idx} className="bg-slate-50 p-6 rounded-2xl border border-slate-100">
@@ -51,26 +54,25 @@ export default function CaseDetail({ params }: { params: { slug: string } }) {
           ))}
         </div>
 
-        {/* 3. 正文内容 */}
+        {/* 正文内容 */}
         <div className="prose prose-lg prose-slate max-w-none">
-          
           <h3 className="text-2xl font-bold text-slate-900 mb-4">背景与挑战</h3>
           <p className="text-slate-600 mb-8">{caseItem.challenge}</p>
 
           <h3 className="text-2xl font-bold text-slate-900 mb-6">我们的解决方案</h3>
           <p className="text-slate-600 mb-8">{caseItem.solution}</p>
 
-          {/* === 核心功能：展示 n8n 工作流图片 === */}
+          {/* n8n 图片 */}
           {caseItem.workflowImage && (
-            <div className="mb-12 rounded-2xl overflow-hidden shadow-2xl border border-slate-200 group">
-              {/* 模拟浏览器窗口栏 */}
+            <div className="mb-12 rounded-3xl overflow-hidden shadow-2xl border border-slate-200 group">
               <div className="bg-slate-100 px-4 py-3 border-b border-slate-200 flex items-center space-x-2">
                 <div className="w-3 h-3 rounded-full bg-red-400"></div>
                 <div className="w-3 h-3 rounded-full bg-yellow-400"></div>
                 <div className="w-3 h-3 rounded-full bg-green-400"></div>
-                <span className="text-xs text-slate-500 font-mono ml-2">n8n_workflow_v1.0.json</span>
+                <span className="text-xs text-slate-500 font-mono ml-2 opacity-70">
+                  n8n_workflow_v1.0.json
+                </span>
               </div>
-              {/* 图片本体 */}
               <img 
                 src={caseItem.workflowImage} 
                 alt="n8n Automation Workflow" 
@@ -97,7 +99,6 @@ export default function CaseDetail({ params }: { params: { slug: string } }) {
               ))}
             </div>
           </div>
-
         </div>
 
         {/* 底部 CTA */}
@@ -105,9 +106,6 @@ export default function CaseDetail({ params }: { params: { slug: string } }) {
           <h3 className="text-2xl font-bold text-blue-900 mb-4">
             想要同款自动化系统？
           </h3>
-          <p className="text-blue-700 mb-8 max-w-xl mx-auto">
-            我们可以为您定制类似的 n8n 智能工作流。
-          </p>
           <a href="/#pricing" className="inline-block px-8 py-4 bg-blue-600 text-white font-bold rounded-xl hover:bg-blue-700 transition-colors shadow-lg">
             查看价格方案
           </a>
