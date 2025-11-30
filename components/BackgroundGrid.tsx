@@ -59,22 +59,22 @@ export default function BackgroundGrid({ highlights = [] }: Props) {
 
   return (
     <div className="pointer-events-none absolute inset-0 -z-10 overflow-hidden">
-      {/* 灰色网格线（右上，对角线以下淡出） */}
+      {/* 灰色网格线 - 微调为更偏冷的 Slate 灰色，显得更高级 */}
       <div
         className="absolute inset-0"
         style={{
           backgroundImage:
-            "linear-gradient(rgba(120,120,120,0.10) 1px, transparent 1px), linear-gradient(90deg, rgba(120,120,120,0.10) 1px, transparent 1px)",
+            "linear-gradient(rgba(148, 163, 184, 0.15) 1px, transparent 1px), linear-gradient(90deg, rgba(148, 163, 184, 0.15) 1px, transparent 1px)",
           backgroundSize: `${CELL}px ${CELL}px`,
           maskImage:
             "linear-gradient(225deg, white 0%, white 42%, transparent 70%)",
           WebkitMaskImage:
             "linear-gradient(225deg, white 0%, white 42%, transparent 70%)",
-          opacity: 0.45,
+          opacity: 0.6,
         }}
       />
 
-      {/* 默认高亮方格（椭圆淡紫）——你可以自己配置 */}
+      {/* 默认高亮方格 - 改为淡蓝色 (Blue-500) */}
       {highlights.map((h, idx) => (
         <div
           key={idx}
@@ -85,13 +85,13 @@ export default function BackgroundGrid({ highlights = [] }: Props) {
             width: CELL,
             height: CELL,
             background:
-              "radial-gradient(ellipse at center, rgba(180,0,255,0.15) 0%, rgba(180,0,255,0.10) 40%, transparent 100%)",
+              "radial-gradient(ellipse at center, rgba(59, 130, 246, 0.12) 0%, rgba(59, 130, 246, 0.05) 50%, transparent 100%)",
             filter: "blur(1px)",
           }}
         />
       ))}
 
-      {/* 跟随鼠标的主光效（椭圆，科技感） */}
+      {/* 跟随鼠标的主光效 - 改为科技蓝 (Blue-600) */}
       {isReady && inGrid && (
         <div
           className="absolute"
@@ -101,14 +101,14 @@ export default function BackgroundGrid({ highlights = [] }: Props) {
             width: CELL,
             height: CELL,
             background:
-              "radial-gradient(ellipse at center, rgba(180,0,255,0.35) 0%, rgba(180,0,255,0.18) 40%, rgba(180,0,255,0.05) 75%, transparent 100%)",
+              "radial-gradient(ellipse at center, rgba(37, 99, 235, 0.30) 0%, rgba(37, 99, 235, 0.15) 40%, rgba(37, 99, 235, 0.02) 80%, transparent 100%)",
             filter: "blur(2px)",
             transition: "left 0.05s ease-out, top 0.05s ease-out",
           }}
         />
       )}
 
-      {/* 椭圆残影（只在右上，有淡出动画） */}
+      {/* 椭圆残影 - 改为淡蓝轨迹 */}
       {trails.map((t) => (
         <div
           key={t.id}
@@ -119,7 +119,7 @@ export default function BackgroundGrid({ highlights = [] }: Props) {
             width: CELL,
             height: CELL,
             background:
-              "radial-gradient(ellipse at center, rgba(180,0,255,0.25) 0%, rgba(180,0,255,0.12) 50%, transparent 100%)",
+              "radial-gradient(ellipse at center, rgba(37, 99, 235, 0.20) 0%, rgba(37, 99, 235, 0.08) 50%, transparent 100%)",
             filter: "blur(2px)",
           }}
         />
