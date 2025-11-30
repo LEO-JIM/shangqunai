@@ -2,7 +2,7 @@
 
 import React from "react";
 
-// 定义简单的 SVG 图标组件
+// 定义简单的 SVG 图标组件 (保持不变)
 const Icons = {
   Alert: () => (
     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -145,8 +145,19 @@ const PainPoints: React.FC = () => {
                       {!isLast && (
                         <span className="mt-1.5 mr-2.5 min-w-[6px] h-1.5 rounded-full bg-gray-300 group-hover:bg-blue-400 transition-colors"></span>
                       )}
-                      {/* 修改部分：将 ! 换成了 → */}
-                      {isLast && <span className="text-blue-600 mr-2 font-bold">→</span>}
+                      
+                      {/* 修改部分：用 SVG 图标代替字符，strokeWidth={3} 加粗 */}
+                      {isLast && (
+                        <svg 
+                          className="w-4 h-4 text-blue-600 mr-2 mt-0.5 flex-shrink-0" 
+                          fill="none" 
+                          viewBox="0 0 24 24" 
+                          stroke="currentColor"
+                        >
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="3" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                        </svg>
+                      )}
+                      
                       {d}
                     </li>
                   );
