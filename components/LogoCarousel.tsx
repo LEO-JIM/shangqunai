@@ -20,7 +20,7 @@ export default function LogoCarousel() {
         {/* ⭐ 修改处：字体放大 */}
         {/* text-2xl (移动端) -> md:text-3xl (桌面端) */}
         {/* text-slate-500 保持低调专业，如果想跳一点可以用 text-blue-600 */}
-        <h2 className="text-center text-2xl md:text-3xl font-bold tracking-widest text-slate-600 uppercase mb-12">
+        <h2 className="text-center text-xl md:text-2xl font-bold tracking-widest text-slate-600 uppercase mb-12">
           技术生态伙伴
         </h2>
 
