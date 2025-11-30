@@ -44,7 +44,7 @@ const Footer = () => {
             <div className="flex space-x-4">
               {/* 小红书 Link */}
               <a 
-                href="#" 
+                href="https://www.xiaohongshu.com/user/profile/5d498c6c000000001602394b" 
                 target="_blank"
                 className="group flex items-center space-x-2 text-slate-400 hover:text-white transition-colors"
               >
@@ -57,10 +57,10 @@ const Footer = () => {
           </div>
         </div>
 
-        {/* 下半部分：版权与备案 */}
+        {/* 下半部分：版权与备案 (已移除隐私政策与服务条款) */}
         <div className="border-t border-slate-800 pt-8 flex flex-col md:flex-row justify-between items-center text-xs text-slate-500">
           
-          <div className="mb-4 md:mb-0 text-center md:text-left flex flex-col md:flex-row md:items-center md:space-x-4 space-y-2 md:space-y-0">
+          <div className="w-full text-center md:text-left flex flex-col md:flex-row md:items-center md:space-x-4 space-y-2 md:space-y-0">
             <p>&copy; {currentYear} 广州商群人工智能科技有限公司. All rights reserved.</p>
             
             {/* 分隔线 (在大屏幕显示) */}
@@ -75,11 +75,6 @@ const Footer = () => {
             >
               粤ICP备2025491916号
             </a>
-          </div>
-
-          <div className="flex space-x-6">
-            <a href="#" className="hover:text-white transition-colors">隐私政策</a>
-            <a href="#" className="hover:text-white transition-colors">服务条款</a>
           </div>
         </div>
       </div>
