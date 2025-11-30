@@ -13,8 +13,6 @@ export default function CasesPage() {
       <div className="pt-24 pb-12">
         <CaseStudies />
       </div>
-
-      <Footer />
     </main>
   );
 }
