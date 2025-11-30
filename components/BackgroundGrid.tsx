@@ -5,7 +5,6 @@ import { useState, useEffect } from "react";
 type Highlight = { col: number; row: number };
 
 interface Props {
-  // 你可以自己指定哪些格子默认高亮（用列 / 行索引）
   highlights?: Highlight[];
 }
 
@@ -30,7 +29,7 @@ export default function BackgroundGrid({ highlights = [] }: Props) {
       const y = e.clientY;
       setPos({ x, y });
 
-      // 只在右上区域记录残影
+      // 逻辑判定：只在右上区域记录残影
       const inRightTop = x > w * 0.3 && y < h * 0.65;
       if (inRightTop) {
         setTrails((prev) => {
@@ -53,28 +52,35 @@ export default function BackgroundGrid({ highlights = [] }: Props) {
 
   const isReady = viewport.w > 0 && viewport.h > 0;
 
-  // 右上区域判定（左下绝对不会有光效）
+  // 逻辑判定：左下角即使鼠标滑过也不产生光效
   const inGrid =
     isReady && pos.x > viewport.w * 0.3 && pos.y < viewport.h * 0.65;
 
   return (
     <div className="pointer-events-none absolute inset-0 -z-10 overflow-hidden">
-      {/* 灰色网格线 - 微调为更偏冷的 Slate 灰色，显得更高级 */}
+      {/* 灰色网格线 
+        ⭐ 关键修复：maskImage 确保左下角完全消失 
+        linear-gradient(225deg, white 0%, white 40%, transparent 60%) 
+        意味着：从右上角(white)开始，到中间偏左下(transparent)结束，左下角彻底透明。
+      */}
       <div
         className="absolute inset-0"
         style={{
           backgroundImage:
             "linear-gradient(rgba(148, 163, 184, 0.15) 1px, transparent 1px), linear-gradient(90deg, rgba(148, 163, 184, 0.15) 1px, transparent 1px)",
           backgroundSize: `${CELL}px ${CELL}px`,
+          
+          // 这里控制“左下角无网格”的视觉效果
           maskImage:
-            "linear-gradient(225deg, white 0%, white 42%, transparent 70%)",
+            "linear-gradient(225deg, white 0%, white 40%, transparent 60%)",
           WebkitMaskImage:
-            "linear-gradient(225deg, white 0%, white 42%, transparent 70%)",
+            "linear-gradient(225deg, white 0%, white 40%, transparent 60%)",
+            
           opacity: 0.6,
         }}
       />
 
-      {/* 默认高亮方格 - 改为淡蓝色 (Blue-500) */}
+      {/* 默认高亮方格 - 蓝色系 */}
       {highlights.map((h, idx) => (
         <div
           key={idx}
@@ -91,7 +97,7 @@ export default function BackgroundGrid({ highlights = [] }: Props) {
         />
       ))}
 
-      {/* 跟随鼠标的主光效 - 改为科技蓝 (Blue-600) */}
+      {/* 跟随鼠标的主光效 - 蓝色系 */}
       {isReady && inGrid && (
         <div
           className="absolute"
@@ -108,7 +114,7 @@ export default function BackgroundGrid({ highlights = [] }: Props) {
         />
       )}
 
-      {/* 椭圆残影 - 改为淡蓝轨迹 */}
+      {/* 椭圆残影 - 蓝色系 */}
       {trails.map((t) => (
         <div
           key={t.id}
