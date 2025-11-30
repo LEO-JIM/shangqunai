@@ -44,7 +44,7 @@ export const CASE_STUDIES: CaseStudy[] = [
     solution: "我们构建了一套基于 n8n 的智能工作流，引入'多轮身份匹配机制'（邮箱/电话/地址），针对紧急情况（如漏水）和常规咨询（如租金）设计独立处理逻辑。",
     
     // 你的 n8n 图片路径 (下一步会教你放哪里)
-    workflowImage: "/images/cases/property-n8n-workflow.png",
+    workflowImage: "/caseImage/tenant-communication.png",
 
     solutionSteps: [
       {
