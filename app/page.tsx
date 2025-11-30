@@ -13,7 +13,6 @@ export default function Home() {
   return (
     <div className="relative min-h-screen bg-transparent overflow-hidden">
       
-      {/* 全局淡紫色纹理 */}
       <BackgroundNoise />
 
 <BackgroundGrid
@@ -29,22 +28,25 @@ export default function Home() {
       {/* ⭐⭐ 顶部 Header */}
       <Header />
 
-      {/* ⭐ 往下推的距离改大（pt-48 → pt-56 或 pt-64） */}
-      <div className="relative z-10 px-10 pt-64 max-w-5xl">
-        <h1 className="text-7xl font-extrabold leading-tight">
-          创造 <span className="text-purple-600">AI 员工</span>
-          <br />
+{/* ⭐ 往下推的距离保持 pt-64，视口高度不够时可以用 min-h-screen */}
+<div className="relative z-10 px-6 md:px-10 pt-48 md:pt-64 max-w-5xl">
+  <h1 className="text-5xl md:text-7xl font-extrabold leading-tight text-slate-900">
+    创造 <span className="text-blue-600">AI 员工</span>
+    <br />
 
-          {/* ⭐ 动态词也同样 7xl */}
-          <span className="text-7xl">
-            <DynamicWords />
-          </span>
-        </h1>
-        <p className="mt-10 max-w-2xl text-[22px] text-gray-600 leading-[1.8]">
-    我们通过深度理解业务流程，为企业定制 AI 自动化方案，<br />
+    {/* ⭐ 动态词区域 */}
+    <span className="block mt-2 md:mt-4 h-[1.2em]">
+      <DynamicWords />
+    </span>
+  </h1>
+  
+  <p className="mt-8 md:mt-10 max-w-2xl text-lg md:text-[22px] text-slate-600 leading-[1.6] md:leading-[1.8]">
+    我们通过深度理解业务流程，为企业定制 AI 自动化方案，<br className="hidden md:block" />
     节省人力成本，提升运行效率，并实现可持续增长。
   </p>
-      </div>
+  
+
+</div>
       <LogoCarousel />
      <PainPoints /> 
   <BusinessFeatures />
