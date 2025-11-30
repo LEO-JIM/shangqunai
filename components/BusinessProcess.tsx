@@ -23,7 +23,7 @@ const steps = [
     desc: [
       {
         head: "业务逻辑透明化",
-        text: "利用 Excalidraw 将您脑海中的业务流程画成清晰的流程图。数据怎么流、AI 哪里介入，一眼便知。",
+        text: "利用 Excalidraw 将您脑海中的业务流程画成清晰的导图。数据怎么流、AI 哪里介入，一眼便知。",
       },
       {
         head: "确认执行标准",
@@ -113,7 +113,6 @@ const BusinessProcess: React.FC = () => {
                   STEP {s.step}
                 </span>
                 <h3 className="text-xl font-bold text-slate-900">{s.title}</h3>
-                <p className="text-sm text-slate-500 font-medium mt-1">{s.sub}</p>
               </div>
 
               {/* Content */}
