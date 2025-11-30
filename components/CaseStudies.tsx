@@ -37,7 +37,6 @@ const CaseStudies = () => {
         
         {/* 头部区域 */}
         <div className="mb-16 text-center md:text-left pt-12">
-          {/* 这里删掉了原来绿色的 Project Showcase 徽章 */}
           <h1 className="text-3xl md:text-5xl font-extrabold text-slate-900 mb-6 leading-tight">
             探索我们的<span className="text-blue-600">成功案例</span>
           </h1>
@@ -63,8 +62,9 @@ const CaseStudies = () => {
                       {item.category}
                     </span>
                 </div>
+                {/* 👇 修改点 1：年份改为 2025 */}
                 <span className="hidden md:block text-xs font-medium text-slate-400 bg-slate-50 px-3 py-1 rounded-full border border-slate-100">
-                    Completed 2024
+                    Completed 2025
                 </span>
               </div>
 
@@ -82,14 +82,12 @@ const CaseStudies = () => {
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
                 <div className="bg-slate-50 rounded-2xl p-6 border border-slate-100">
                     <p className="text-sm font-bold text-slate-900 mb-2 uppercase tracking-wider">挑战 Challenge</p>
-                    {/* 修改点：删除了 line-clamp-3，文字会全部显示 */}
                     <p className="text-slate-600 leading-relaxed text-sm">
                       {item.description}
                     </p>
                 </div>
                 <div className="bg-blue-50/50 rounded-2xl p-6 border border-blue-100">
                     <p className="text-sm font-bold text-blue-900 mb-2 uppercase tracking-wider">解决方案 Solution</p>
-                    {/* 修改点：删除了 line-clamp-3 */}
                     <p className="text-slate-700 leading-relaxed text-sm">
                       {item.solution}
                     </p>
@@ -101,7 +99,6 @@ const CaseStudies = () => {
                 {/* 数据展示区域 */}
                 <div className="flex flex-wrap gap-4 md:gap-6">
                   {item.results.slice(0, 2).map((res, i) => (
-                    // 修改点：优化了数据块的样式，显示 subtext
                     <div key={i} className="flex items-center bg-white shadow-sm border border-slate-200 px-4 py-2 rounded-xl">
                       <div className="mr-3">
                         {getIconComponent(res.icon)}
@@ -119,7 +116,8 @@ const CaseStudies = () => {
                   href={`/cases/${item.id}`} 
                   className="inline-flex items-center justify-center px-6 py-3 border border-transparent text-sm font-bold rounded-xl text-white bg-slate-900 hover:bg-blue-600 transition-all duration-200 shadow-md hover:shadow-lg transform hover:-translate-y-0.5"
                 >
-                  阅读完整复盘
+                  {/* 👇 修改点 2：文字改为 阅读详情 */}
+                  阅读详情
                   <Icons.ArrowRight />
                 </Link>
               </div>
