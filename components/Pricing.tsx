@@ -9,13 +9,21 @@ const CheckIcon = () => (
   </svg>
 );
 
+// 定义标准的 5 步流程 (已更新为您指定的专业术语)
+const standardSteps = [
+  "1. 业务梳理与诊断",
+  "2. 流程可视化设计",
+  "3. 方案确认与定稿",
+  "4. 私有化部署交付",
+  "5. 持续优化与陪跑"
+];
+
 const pricingPlans = [
   {
     name: "基础协作版",
     desc: "适合单一业务场景的自动化升级",
-    price: "¥4,980",
+    price: "¥8,999",
     period: "/月",
-    // 核心差异：每个月交付量明确
     features: [
       "每月交付 1 个标准自动化流程",
       "基础运行维护与 Bug 修复",
@@ -28,7 +36,7 @@ const pricingPlans = [
   {
     name: "深度增长版",
     desc: "适合多部门、跨系统的深度业务整合",
-    price: "¥12,800",
+    price: "¥59,999",
     period: "/月",
     features: [
       "每月交付 3 个复杂自动化流程",
@@ -43,7 +51,7 @@ const pricingPlans = [
   {
     name: "企业合伙版",
     desc: "针对复杂需求的全案定制开发",
-    price: "定制化", // 修改：不再是面议
+    price: "定制化",
     period: "",
     features: [
       "按需定制开发配额",
@@ -57,20 +65,11 @@ const pricingPlans = [
   },
 ];
 
-// 定义标准的 5 步流程，将在每个卡片中展示
-const standardSteps = [
-  "1. 业务深度诊断",
-  "2. 自动化方案设计",
-  "3. 开发与私有化部署",
-  "4. 员工操作培训",
-  "5. 持续维护与迭代"
-];
-
 const Pricing = () => {
   return (
     <section id="pricing" className="w-full py-24 px-6 md:px-8 bg-slate-50">
       <div className="max-w-7xl mx-auto">
-        {/* 头部文案 - 极简、指向性强 */}
+        {/* 头部文案 */}
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-6">
             AI 自动化合作伙伴方案
@@ -89,11 +88,11 @@ const Pricing = () => {
               key={idx}
               className={`relative rounded-2xl p-8 transition-all duration-300 flex flex-col h-full ${
                 plan.popular
-                  ? "bg-white ring-2 ring-blue-600 shadow-xl z-10" // 模仿图片风格：白底+蓝框
+                  ? "bg-white ring-2 ring-blue-600 shadow-xl z-10" // 推荐款：白底蓝框
                   : "bg-white border border-gray-200 shadow-sm hover:shadow-md"
               }`}
             >
-              {/* 推荐标签 (模仿图片中的 Pill Shape) */}
+              {/* 推荐标签 */}
               {plan.popular && (
                 <div className="absolute top-6 right-6 bg-blue-600 text-white text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wide">
                   Popular
