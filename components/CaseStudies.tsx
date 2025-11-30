@@ -1,8 +1,8 @@
 "use client";
 
 import React from "react";
+import Link from "next/link"; // 引入 Link 组件
 
-// 定义图标
 const Icons = {
   ArrowRight: () => (
     <svg className="w-4 h-4 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -24,23 +24,29 @@ const Icons = {
       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
     </svg>
   ),
+  Money: () => (
+    <svg className="w-4 h-4 text-amber-500 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+    </svg>
+  )
 };
 
 const cases = [
   {
-    category: "房地产管理 · 客服自动化",
-    title: "物业公司 AI 邮件管家系统",
-    subtitle: "让 AI 接管 90% 的租户重复咨询，实现 24/7 秒级响应",
-    description: "该客户管理着超过 2,000 套租赁单元，客服团队每天被大量重复的邮件淹没（如：'空调坏了'、'合同什么时候到期'、'如何支付租金'）。这导致核心业务处理缓慢，租户满意度下降。",
-    solution: "我们基于 n8n + OpenAI 构建了一套自动化系统：自动识别租户邮件意图 -> 检索租赁数据库 -> 自动草拟并发送回复 -> 对于复杂维修请求自动生成工单并通知维修工。",
+    id: "property-management", // 用于路由
+    category: "物业管理 · 客服自动化",
+    title: "加拿大物业公司 AI 智能邮件管家",
+    subtitle: "多重身份验证 + 智能分流，实现 70% 客服自动化",
+    // 摘要部分，吸引点击
+    description: "客户每天面临大量租户邮件，人工回复耗时且易出错。我们需要解决的核心难题是：如何在不确定的邮件内容中精准识别租户身份，并区分'紧急'与'常规'需求。",
+    solution: "构建了一套基于 n8n 的智能工作流：引入'多轮身份匹配机制'（邮箱/电话/地址），针对紧急情况（如漏水）和常规咨询（如租金）设计独立处理逻辑，并设有严格的人工兜底机制。",
     results: [
-      { icon: <Icons.Clock />, text: "响应时间从 24h 降至 2min" },
-      { icon: <Icons.TrendingDown />, text: "客服人工介入率降低 85%" },
+      { icon: <Icons.Clock />, text: "节省 70% 客服时间" },
+      { icon: <Icons.Money />, text: "月节省成本 $2,100 CAD" },
     ],
-    // 这里可以加一个具体的案例详情页链接，如果没有就放空或 '#'
-    link: "#", 
+    link: "/cases/property-management", // 指向二级详情页
   },
-  // 可以在这里复制上面的结构添加更多案例...
+  // ... 其他案例
 ];
 
 const CaseStudies = () => {
@@ -48,16 +54,12 @@ const CaseStudies = () => {
     <section className="w-full px-6 md:px-8">
       <div className="max-w-5xl mx-auto">
         
-        {/* 头部区域 - 更加像一个独立的 Landing Page Header */}
-        <div className="mb-16 text-center md:text-left">
-          <div className="inline-flex items-center space-x-2 mb-6 bg-white border border-slate-200 px-4 py-2 rounded-full shadow-sm">
-            <span className="w-2 h-2 rounded-full bg-green-500 animate-pulse"></span>
-            <span className="text-xs font-bold text-slate-600 uppercase tracking-wide">
-              Project Showcase
-            </span>
-          </div>
-
-          <h1 className="text-4xl md:text-5xl font-extrabold text-slate-900 mb-6 leading-tight">
+        {/* 头部区域：已删除绿色圆点，改为极简大标题 */}
+        <div className="mb-16 text-center md:text-left pt-12">
+          <h2 className="text-sm font-bold text-blue-600 uppercase tracking-widest mb-3">
+            PROJECT SHOWCASE
+          </h2>
+          <h1 className="text-3xl md:text-5xl font-extrabold text-slate-900 mb-6 leading-tight">
             探索我们的<span className="text-blue-600">成功案例</span>
           </h1>
           <p className="text-lg text-slate-600 max-w-2xl leading-relaxed">
@@ -76,13 +78,12 @@ const CaseStudies = () => {
               <div className="flex items-center justify-between mb-6">
                 <div className="flex items-center space-x-2">
                     <div className="p-2.5 bg-blue-50 rounded-xl text-blue-600">
-                    <Icons.Mail />
+                      <Icons.Mail />
                     </div>
                     <span className="text-sm font-bold text-slate-500 tracking-wide uppercase">
-                    {item.category}
+                      {item.category}
                     </span>
                 </div>
-                {/* 日期或状态，可选 */}
                 <span className="hidden md:block text-xs font-medium text-slate-400 bg-slate-50 px-3 py-1 rounded-full border border-slate-100">
                     Completed 2024
                 </span>
@@ -112,7 +113,6 @@ const CaseStudies = () => {
 
               {/* 底部结果与按钮 */}
               <div className="flex flex-col md:flex-row md:items-center justify-between border-t border-slate-100 pt-6 mt-auto gap-4">
-                {/* 数据结果 */}
                 <div className="flex flex-wrap gap-4 md:gap-6">
                   {item.results.map((res, i) => (
                     <div key={i} className="flex items-center text-sm font-bold text-slate-800 bg-white shadow-sm border border-slate-200 px-3 py-1.5 rounded-lg">
@@ -122,11 +122,14 @@ const CaseStudies = () => {
                   ))}
                 </div>
 
-                {/* 按钮 */}
-                <a href={item.link} className="inline-flex items-center justify-center px-6 py-3 border border-transparent text-sm font-bold rounded-xl text-white bg-slate-900 hover:bg-blue-600 transition-all duration-200 shadow-md hover:shadow-lg transform hover:-translate-y-0.5">
+                {/* 链接改为 Link 组件，指向二级页面 */}
+                <Link 
+                  href={item.link} 
+                  className="inline-flex items-center justify-center px-6 py-3 border border-transparent text-sm font-bold rounded-xl text-white bg-slate-900 hover:bg-blue-600 transition-all duration-200 shadow-md hover:shadow-lg transform hover:-translate-y-0.5"
+                >
                   阅读完整复盘
                   <Icons.ArrowRight />
-                </a>
+                </Link>
               </div>
             </div>
           ))}
