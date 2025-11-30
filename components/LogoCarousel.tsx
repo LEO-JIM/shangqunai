@@ -20,7 +20,7 @@ export default function LogoCarousel() {
           text-[#6F00FF] (紫色) -> text-blue-600 (科技蓝)
           或者是 text-slate-500 (低调灰)，看你喜好。
         */}
-        <h2 className="text-center text-sm md:text-base font-bold tracking-widest text-blue-600 uppercase mb-12">
+        <h2 className="text-center text-xl md:text-base font-bold tracking-widest text-blue-600 uppercase mb-12">
           技术生态伙伴
         </h2>
 
