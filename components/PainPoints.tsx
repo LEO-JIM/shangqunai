@@ -145,7 +145,8 @@ const PainPoints: React.FC = () => {
                       {!isLast && (
                         <span className="mt-1.5 mr-2.5 min-w-[6px] h-1.5 rounded-full bg-gray-300 group-hover:bg-blue-400 transition-colors"></span>
                       )}
-                      {isLast && <span className="text-blue-600 mr-2 font-bold">!</span>}
+                      {/* 修改部分：将 ! 换成了 → */}
+                      {isLast && <span className="text-blue-600 mr-2 font-bold">→</span>}
                       {d}
                     </li>
                   );
@@ -154,7 +155,7 @@ const PainPoints: React.FC = () => {
             </div>
           ))}
 
-          {/* Card 6: The Solution (添加了强动效) */}
+          {/* Card 6: The Solution */}
           <div className="
             relative group cursor-pointer
             flex flex-col justify-center items-center 
@@ -174,7 +175,7 @@ const PainPoints: React.FC = () => {
             <p className="text-slate-400 text-sm mb-8 leading-relaxed">
               别让技术障碍成为发展瓶颈。<br/>我们提供务实的 AI 自动化方案，从根源解决效率难题。
             </p>
-            {/* 箭头动画：原本 bounce，现在悬停时加剧 */}
+            {/* 箭头动画 */}
             <div className="animate-bounce mt-2 p-2 rounded-full bg-slate-800 group-hover:bg-blue-600 transition-colors duration-300">
               <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
