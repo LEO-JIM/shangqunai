@@ -28,7 +28,7 @@ const standardSteps = [
 
 const pricingPlans = [
   {
-    name: "流程协作伙伴 (Process Partner)",
+    name: "流程协作伙伴",
     subtitle: "适合业务场景单一，需要快速实现自动化的团队",
     price: "¥8,999",
     period: "/月",
@@ -47,7 +47,7 @@ const pricingPlans = [
     popular: false,
   },
   {
-    name: "实效增长伙伴 (Growth Partner)",
+    name: "实效增长伙伴",
     subtitle: "适合业务复杂，需要深度技术介入的企业",
     price: "¥59,999",
     period: "/月",
@@ -67,7 +67,7 @@ const pricingPlans = [
     popular: true, // 推荐款
   },
   {
-    name: "战略护航伙伴 (Strategic Partner)",
+    name: "战略护航伙伴",
     subtitle: "针对特定复杂业务场景的深度定制方案",
     price: "定制化",
     period: "",
