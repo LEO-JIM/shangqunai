@@ -128,7 +128,7 @@ export default function BackgroundGrid({ highlights = [] }: Props) {
           100% { opacity: 0; }
         }
         .animate-fadeOut {
-          animation: fadeOut 1.5s forwards; /* 1.5秒内慢慢消失 */
+          animation: fadeOut 1s forwards; /* 1.5秒内慢慢消失 */
         }
       `}</style>
     </div>
