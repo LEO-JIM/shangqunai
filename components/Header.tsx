@@ -9,7 +9,7 @@ export default function Header() {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   // 👇 请在这里填入你的 n8n 通用咨询表单链接 (Webhook URL)
-  const GENERAL_FORM_URL = "https://your-n8n-instance.com/form/general-inquiry"; 
+  const GENERAL_FORM_URL = "https://n8nstorm.app.n8n.cloud/form-test/20056cb7-0807-4dde-b25b-6ce888c76e72"; 
 
   return (
     <>
@@ -66,7 +66,7 @@ export default function Header() {
       <ConsultationModal 
         isOpen={isModalOpen} 
         onClose={() => setIsModalOpen(false)} 
-        formUrl={"https://n8nstorm.app.n8n.cloud/form-test/20056cb7-0807-4dde-b25b-6ce888c76e72"} 
+        formUrl="https://n8nstorm.app.n8n.cloud/form-test/20056cb7-0807-4dde-b25b-6ce888c76e72"
           //test url so far
       />
     </>
