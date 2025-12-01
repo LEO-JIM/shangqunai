@@ -61,13 +61,17 @@ const AboutUs = () => {
         {/* 2. 创始人介绍布局 */}
         <div className="flex flex-col lg:flex-row items-start gap-12 lg:gap-24">
           
-          {/* 左侧：精致的小窗口人像 (缩小版) */}
+          {/* 左侧：精致的小窗口人像 (固定宽度) */}
           <div className="flex-shrink-0 mx-auto lg:mx-0 flex flex-col items-center lg:sticky lg:top-24">
             
-            {/* 图片容器：尺寸缩小 */}
+            {/* 图片容器修改：
+               1. 去掉了 border-4 border-white (那圈奇怪的白边)
+               2. 加上了 bg-slate-100 (淡灰色底)，如果你抠图成透明PNG，这个底色会显得很高级
+               3. 保持了大圆角和深阴影
+            */}
             <div className="
               relative 
-              w-40 h-40 lg:w-48 lg:h-48  /* 修改点：从 w-64 缩小到 w-48 */
+              w-64 h-64 
               rounded-[2rem] 
               overflow-hidden 
               shadow-2xl 
@@ -81,11 +85,11 @@ const AboutUs = () => {
               />
             </div>
 
-            {/* 名字与头衔：字体也相应微调小一点 */}
-            <div className="mt-6 text-center">
-              <h3 className="text-2xl font-bold text-slate-900 mb-1">李述一</h3>
-              <p className="text-xs font-bold text-blue-600 uppercase tracking-widest">
-                Founder & Automation Architect
+            {/* 名字与头衔 */}
+            <div className="mt-8 text-center">
+              <h3 className="text-3xl font-bold text-slate-900 mb-2">李述一</h3>
+              <p className="text-sm font-bold text-blue-600 uppercase tracking-widest">
+                创始人 & AI 自动化架构师
               </p>
             </div>
           </div>
