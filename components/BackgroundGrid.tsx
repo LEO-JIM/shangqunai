@@ -29,12 +29,13 @@ export default function BackgroundGrid({ highlights = [] }: Props) {
       const y = e.clientY;
       setPos({ x, y });
 
-      // 逻辑判定：只在右上区域记录残影（大约右边 70%，上面 65% 的区域）
+      // 逻辑判定：只在右上区域记录残影
       const inRightTop = x > w * 0.3 && y < h * 0.65;
       if (inRightTop) {
         setTrails((prev) => {
+          // 限制残影数量，保持页面高性能
           const next = [
-            ...prev.slice(-15),
+            ...prev.slice(-10), // 稍微减少一点残影数量，让视觉更干练
             { x, y, id: Date.now() + Math.random() },
           ];
           return next;
@@ -58,63 +59,57 @@ export default function BackgroundGrid({ highlights = [] }: Props) {
 
   return (
     <div className="pointer-events-none absolute inset-0 -z-10 overflow-hidden">
-      {/* ⭐ 核心修复：灰色网格线背景
-        使用了径向遮罩 (radial-gradient)，以右上角 (100% 0%) 为中心。
-        离右上角越近越可见 (white)，超过 65% 的距离后完全透明 (transparent)。
-        这能确保左下角的文字区域绝对干净。
-      */}
+      {/* 1. 基础网格线 (保持不变，使用径向遮罩确保左下角干净) */}
       <div
         className="absolute inset-0"
         style={{
           backgroundImage:
             "linear-gradient(rgba(148, 163, 184, 0.15) 1px, transparent 1px), linear-gradient(90deg, rgba(148, 163, 184, 0.15) 1px, transparent 1px)",
           backgroundSize: `${CELL}px ${CELL}px`,
-          
-          // 修改处：使用以右上角为中心的径向渐变遮罩
           maskImage:
             "radial-gradient(circle at 100% 0%, white 0%, white 35%, transparent 65%)",
           WebkitMaskImage:
             "radial-gradient(circle at 100% 0%, white 0%, white 35%, transparent 65%)",
-            
-          opacity: 0.7, // 稍微增加了一点点整体不透明度，让右上角的网格更清晰一点
+          opacity: 0.7,
         }}
       />
 
-      {/* 默认高亮方格 - 蓝色系 */}
+      {/* 2. 静态高亮方格 (如果有传入 highlights) */}
       {highlights.map((h, idx) => (
         <div
           key={idx}
-          className="absolute"
+          className="absolute border border-blue-500/30"
           style={{
-            left: h.col * CELL,
-            top: h.row * CELL,
-            width: CELL,
-            height: CELL,
-            background:
-              "radial-gradient(ellipse at center, rgba(59, 130, 246, 0.15) 0%, rgba(59, 130, 246, 0.05) 50%, transparent 100%)",
-            filter: "blur(1px)",
+            left: h.col * CELL + 1, // +1 为了让边框对齐网格内侧
+            top: h.row * CELL + 1,
+            width: CELL - 1,
+            height: CELL - 1,
+            backgroundColor: "rgba(59, 130, 246, 0.05)", // 极淡的蓝色填充
           }}
         />
       ))}
 
-      {/* 跟随鼠标的主光效 - 蓝色系 */}
+      {/* 3. 鼠标跟随的主方格 (Active Cell) */}
+      {/* 去掉了 blur，改用纯色填充 + 边框，打造“选中”的实感 */}
       {isReady && inGrid && (
         <div
-          className="absolute"
+          className="absolute z-10"
           style={{
             left: snappedX,
             top: snappedY,
             width: CELL,
             height: CELL,
-            background:
-              "radial-gradient(ellipse at center, rgba(37, 99, 235, 0.35) 0%, rgba(37, 99, 235, 0.15) 40%, rgba(37, 99, 235, 0.02) 80%, transparent 100%)",
-            filter: "blur(2px)",
-            transition: "left 0.05s ease-out, top 0.05s ease-out",
+            // 样式修改重点：
+            backgroundColor: "rgba(37, 99, 235, 0.2)", // 科技蓝填充，不透明度 20%
+            border: "1px solid rgba(37, 99, 235, 0.6)", // 亮蓝色边框，强调边界
+            boxShadow: "0 0 15px rgba(37, 99, 235, 0.15)", // 极其微弱的内发光，增加层次
+            transition: "left 0.1s cubic-bezier(0, 0, 0.2, 1), top 0.1s cubic-bezier(0, 0, 0.2, 1)", // 稍微加快一点，更有机械感
           }}
         />
       )}
 
-      {/* 椭圆残影 - 蓝色系 */}
+      {/* 4. 方格残影 (Trails) */}
+      {/* 同样去掉了 blur，变成一个个逐渐消失的方块 */}
       {trails.map((t) => (
         <div
           key={t.id}
@@ -124,9 +119,11 @@ export default function BackgroundGrid({ highlights = [] }: Props) {
             top: snap(t.y),
             width: CELL,
             height: CELL,
-            background:
-              "radial-gradient(ellipse at center, rgba(37, 99, 235, 0.25) 0%, rgba(37, 99, 235, 0.10) 50%, transparent 100%)",
-            filter: "blur(2px)",
+            // 样式修改重点：
+            backgroundColor: "rgba(37, 99, 235, 0.1)", // 更淡的蓝色
+            border: "1px solid rgba(37, 99, 235, 0.2)", // 很淡的边框
+            // 这是一个 CSS 动画，需要在全局 CSS 或 tailwind config 里定义 @keyframes fadeOut
+            // 哪怕没有定义，它也会显示为静止的淡蓝方块
           }}
         />
       ))}
