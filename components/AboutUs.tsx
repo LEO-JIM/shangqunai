@@ -19,11 +19,11 @@ const credentials = [
   },
   {
     title: "全球最大付费 AI 自动化社群 (Skool) Top 4% 贡献者",
-    desc: "与北美 AI 自动化公司保持长期交流，掌握行业最佳实践。",
+    desc: "与北美 AI 自动化代理公司保持长期交流，掌握行业最佳实践。",
     icon: <Icons.Star />,
   },
   {
-    title: "2025 AAAI 全球顶会论文第二作者",
+    title: "2025 AAAI（全球 AI 顶会）论文第二作者",
     desc: "深入理解 AI 底层推理逻辑与稳定性，为您构建更可靠的 AI 赚钱机器。",
     icon: <Icons.Academic />,
   },
@@ -39,7 +39,7 @@ const credentials = [
   },
   {
     title: "专注 B2B 自动化与流程重构",
-    desc: "不做工具教学，只做能为企业真正节省人工与时间成本的交付。",
+    desc: "不科普科技玩具，只做能为企业真正节省人工与时间成本的交付。",
     icon: <Icons.Business />,
   },
 ];
