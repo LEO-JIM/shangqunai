@@ -21,7 +21,7 @@ export default function Header() {
           <a href="/cases" className="text-sm font-medium text-gray-600 hover:text-blue-600 transition-colors">
             案例
           </a>
-          <a href="#" className="text-sm font-medium text-gray-600 hover:text-blue-600 transition-colors">
+          <a href="/about" className="text-sm font-medium text-gray-600 hover:text-blue-600 transition-colors">
             关于我们
           </a>
         </nav>
