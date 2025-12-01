@@ -33,9 +33,8 @@ export default function BackgroundGrid({ highlights = [] }: Props) {
       const inRightTop = x > w * 0.3 && y < h * 0.65;
       if (inRightTop) {
         setTrails((prev) => {
-          // 限制残影数量，保持页面高性能
           const next = [
-            ...prev.slice(-10), // 稍微减少一点残影数量，让视觉更干练
+            ...prev.slice(-8), // 进一步减少残影数量，保持干净
             { x, y, id: Date.now() + Math.random() },
           ];
           return next;
@@ -59,38 +58,46 @@ export default function BackgroundGrid({ highlights = [] }: Props) {
 
   return (
     <div className="pointer-events-none absolute inset-0 -z-10 overflow-hidden">
-      {/* 1. 基础网格线 (保持不变，使用径向遮罩确保左下角干净) */}
+      {/* 1. 基础网格线
+         修改点：颜色改为纯黑的极低透明度 (rgba(0,0,0,0.04))。
+         这比之前的 Slate/Blue 灰更像“工程制图”，完全没有色相偏向，非常稳。
+      */}
       <div
         className="absolute inset-0"
         style={{
           backgroundImage:
-            "linear-gradient(rgba(148, 163, 184, 0.15) 1px, transparent 1px), linear-gradient(90deg, rgba(148, 163, 184, 0.15) 1px, transparent 1px)",
+            "linear-gradient(rgba(0, 0, 0, 0.04) 1px, transparent 1px), linear-gradient(90deg, rgba(0, 0, 0, 0.04) 1px, transparent 1px)",
           backgroundSize: `${CELL}px ${CELL}px`,
+          // 遮罩保持不变
           maskImage:
             "radial-gradient(circle at 100% 0%, white 0%, white 35%, transparent 65%)",
           WebkitMaskImage:
             "radial-gradient(circle at 100% 0%, white 0%, white 35%, transparent 65%)",
-          opacity: 0.7,
         }}
       />
 
-      {/* 2. 静态高亮方格 (如果有传入 highlights) */}
+      {/* 2. 静态高亮方格 (Optional) */}
       {highlights.map((h, idx) => (
         <div
           key={idx}
-          className="absolute border border-blue-500/30"
+          className="absolute"
           style={{
-            left: h.col * CELL + 1, // +1 为了让边框对齐网格内侧
-            top: h.row * CELL + 1,
-            width: CELL - 1,
-            height: CELL - 1,
-            backgroundColor: "rgba(59, 130, 246, 0.05)", // 极淡的蓝色填充
+            left: h.col * CELL,
+            top: h.row * CELL,
+            width: CELL,
+            height: CELL,
+            backgroundColor: "rgba(0, 0, 0, 0.02)", // 静态格子改为极淡的灰色，不抢眼
           }}
         />
       ))}
 
       {/* 3. 鼠标跟随的主方格 (Active Cell) */}
-      {/* 去掉了 blur，改用纯色填充 + 边框，打造“选中”的实感 */}
+      {/* 修改点：
+          1. 去掉了 border (边框)
+          2. 去掉了 boxShadow (光晕)
+          3. 颜色改为极为克制的“科技蓝”填充，透明度很低 (0.08)。
+          现在它看起来像是一个淡淡的数据块。
+      */}
       {isReady && inGrid && (
         <div
           className="absolute z-10"
@@ -99,17 +106,14 @@ export default function BackgroundGrid({ highlights = [] }: Props) {
             top: snappedY,
             width: CELL,
             height: CELL,
-            // 样式修改重点：
-            backgroundColor: "rgba(37, 99, 235, 0.2)", // 科技蓝填充，不透明度 20%
-            border: "1px solid rgba(37, 99, 235, 0.6)", // 亮蓝色边框，强调边界
-            boxShadow: "0 0 15px rgba(37, 99, 235, 0.15)", // 极其微弱的内发光，增加层次
-            transition: "left 0.1s cubic-bezier(0, 0, 0.2, 1), top 0.1s cubic-bezier(0, 0, 0.2, 1)", // 稍微加快一点，更有机械感
+            backgroundColor: "rgba(37, 99, 235, 0.08)", // 极淡的蓝色填充 (Blue-600 @ 8%)
+            transition: "left 0.15s cubic-bezier(0.4, 0, 0.2, 1), top 0.15s cubic-bezier(0.4, 0, 0.2, 1)", 
           }}
         />
       )}
 
       {/* 4. 方格残影 (Trails) */}
-      {/* 同样去掉了 blur，变成一个个逐渐消失的方块 */}
+      {/* 修改点：同样去掉了边框，颜色更淡 */}
       {trails.map((t) => (
         <div
           key={t.id}
@@ -119,11 +123,7 @@ export default function BackgroundGrid({ highlights = [] }: Props) {
             top: snap(t.y),
             width: CELL,
             height: CELL,
-            // 样式修改重点：
-            backgroundColor: "rgba(37, 99, 235, 0.1)", // 更淡的蓝色
-            border: "1px solid rgba(37, 99, 235, 0.2)", // 很淡的边框
-            // 这是一个 CSS 动画，需要在全局 CSS 或 tailwind config 里定义 @keyframes fadeOut
-            // 哪怕没有定义，它也会显示为静止的淡蓝方块
+            backgroundColor: "rgba(37, 99, 235, 0.04)", // 几乎透明的蓝 (Blue-600 @ 4%)
           }}
         />
       ))}
