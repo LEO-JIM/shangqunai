@@ -32,7 +32,7 @@ const Footer = () => {
               <li><Link href="/" className="text-sm hover:text-white transition-colors">首页</Link></li>
               <li><Link href="/cases" className="text-sm hover:text-white transition-colors">客户案例</Link></li>
               <li><Link href="/#pricing" className="text-sm hover:text-white transition-colors">价格方案</Link></li>
-              <li><Link href="#" className="text-sm hover:text-white transition-colors">关于我们</Link></li>
+              <li><Link href="/about" className="text-sm hover:text-white transition-colors">关于我们</Link></li>
             </ul>
           </div>
 
