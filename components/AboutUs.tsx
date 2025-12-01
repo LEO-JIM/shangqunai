@@ -79,7 +79,7 @@ const AboutUs = () => {
               transform hover:scale-105 transition-transform duration-500
             ">
               <img 
-                src="/images/founder1.jpg" 
+                src="/images/founder1.png" 
                 alt="李述一" 
                 className="w-full h-full object-cover"
               />
@@ -94,42 +94,44 @@ const AboutUs = () => {
             </div>
           </div>
 
-          {/* 右侧：核心卖点 (卡片式布局) */}
+         {/* 右侧：核心卖点 (紧凑卡片版) */}
           <div className="flex-grow w-full">
-            <div className="mb-8">
+            <div className="mb-6 border-b border-slate-100 pb-2">
               <h3 className="text-xl font-bold text-slate-900">专业背景 & 核心优势</h3>
             </div>
 
-            {/* 修改点：增加了 bg-white, border, shadow, rounded-2xl
-               让每一项都变成一个独立的卡片
+            {/* 修改点：
+               1. gap-6 -> gap-4 (间距更紧凑)
+               2. flex-col -> flex-row (图标在左，文字在右，节省高度)
+               3. p-6 -> p-4 (减小内边距)
             */}
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               {credentials.map((item, idx) => (
                 <div 
                   key={idx} 
                   className="
-                    flex flex-col items-start p-6 
+                    flex items-start p-4 
                     bg-white 
                     border border-slate-100 
-                    rounded-2xl 
+                    rounded-xl 
                     shadow-sm 
                     hover:shadow-md hover:border-blue-100 
                     transition-all duration-300
                   "
                 >
-                  {/* 图标 */}
-                  <div className="mb-4">
-                    <div className="w-12 h-12 bg-slate-50 rounded-xl flex items-center justify-center text-blue-600">
+                  {/* 图标：放在左侧，尺寸稍微调小一点 (w-10 h-10) */}
+                  <div className="flex-shrink-0 mr-4">
+                    <div className="w-10 h-10 bg-slate-50 rounded-lg flex items-center justify-center text-blue-600 border border-slate-50">
                       {item.icon}
                     </div>
                   </div>
                   
-                  {/* 文字 */}
+                  {/* 文字：放在右侧 */}
                   <div>
-                    <h4 className="text-base font-bold text-slate-900 mb-2 leading-tight">
+                    <h4 className="text-sm font-bold text-slate-900 mb-1 leading-tight">
                       {item.title}
                     </h4>
-                    <p className="text-sm text-slate-600 leading-relaxed">
+                    <p className="text-xs text-slate-600 leading-relaxed text-justify">
                       {item.desc}
                     </p>
                   </div>
@@ -137,7 +139,6 @@ const AboutUs = () => {
               ))}
             </div>
           </div>
-
         </div>
       </div>
     </section>
