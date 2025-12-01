@@ -28,7 +28,7 @@ const standardSteps = [
 
 const pricingPlans = [
   {
-    name: "标准协作版",
+    name: "流程协作伙伴 (Process Partner)",
     subtitle: "适合业务场景单一，需要快速实现自动化的团队",
     price: "¥8,999",
     period: "/月",
@@ -47,7 +47,7 @@ const pricingPlans = [
     popular: false,
   },
   {
-    name: "深度增长版",
+    name: "实效增长伙伴 (Growth Partner)",
     subtitle: "适合业务复杂，需要深度技术介入的企业",
     price: "¥59,999",
     period: "/月",
@@ -67,7 +67,7 @@ const pricingPlans = [
     popular: true, // 推荐款
   },
   {
-    name: "企业合作伙伴",
+    name: "战略护航伙伴 (Strategic Partner)",
     subtitle: "针对特定复杂业务场景的深度定制方案",
     price: "定制化",
     period: "",
@@ -119,7 +119,7 @@ const Pricing = () => {
               {/* 推荐标签 */}
               {plan.popular && (
                 <div className="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-blue-600 text-white text-xs font-bold px-4 py-1.5 rounded-full uppercase tracking-wider shadow-md">
-                  Recommended
+                  推荐
                 </div>
               )}
 
