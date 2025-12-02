@@ -1,8 +1,5 @@
 "use client";
 
-import Image from "next/image";
-
-// ⭐ 已修正：所有 src 使用干净、合法的文件名
 const logos = [
   { src: "/logos/n8n.png", w: 120 },
   { src: "/logos/skool.png", w: 110 },
@@ -28,11 +25,13 @@ export default function LogoCarousel() {
           <div className="flex animate-scroll space-x-16 w-max opacity-100 items-center">
             {logos.map((logo, i) => (
               <div key={i} className="flex items-center justify-center min-w-[120px]">
-                <Image
+                {/* ⭐ 关键：使用 <img> 而不是 <Image> */}
+                <img
                   src={logo.src}
                   alt="logo"
                   width={logo.w}
                   height={60}
+                  loading="lazy"
                   className="object-contain grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-300"
                 />
               </div>
@@ -40,11 +39,12 @@ export default function LogoCarousel() {
 
             {logos.map((logo, i) => (
               <div key={`copy-${i}`} className="flex items-center justify-center min-w-[120px]">
-                <Image
+                <img
                   src={logo.src}
                   alt="logo-copy"
                   width={logo.w}
                   height={60}
+                  loading="lazy"
                   className="object-contain grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-300"
                 />
               </div>
