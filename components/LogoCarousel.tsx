@@ -5,11 +5,9 @@ import Image from "next/image";
 // ⭐ 已修正：所有 src 使用干净、合法的文件名
 const logos = [
   { src: "/logos/n8n.svg", w: 120 },
-  { src: "/logos/skool.svg", w: 110 },
   { src: "/logos/deepseek.svg", w: 133 },
   { src: "/logos/feishu.svg", w: 120 },
   { src: "/logos/google-2015.svg", w: 117 },
-  { src: "/logos/google-gemini.svg", w: 120 },
   { src: "/logos/openAI.svg", w: 130 },
 ];
 
