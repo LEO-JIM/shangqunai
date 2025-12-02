@@ -1,4 +1,4 @@
-export const dynamic = "force-dynamic";
+//export const dynamic = "force-dynamic";
 
 import DynamicWords from "@/components/DynamicWords";
 import Header from "@/components/Header"; 
