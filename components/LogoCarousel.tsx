@@ -7,9 +7,9 @@ function LogoCarouselInner() {
   const logos = [
     { src: "/logos/n8n.png", w: 120 },
     { src: "/logos/skool.png", w: 110 },
-    { src: "/logos/deepseek.png", w: 133 },
+    { src: "/logos/deepseek.svg", w: 133 },
     { src: "/logos/feishu.jpg", w: 120 },
-    { src: "/logos/google-2015.png", w: 117 },
+    { src: "/logos/google.svg", w: 117 },
     { src: "/logos/google-gemini.png", w: 120 },
     { src: "/logos/openai.svg", w: 130 },
   ];
