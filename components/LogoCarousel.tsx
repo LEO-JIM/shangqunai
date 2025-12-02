@@ -10,7 +10,7 @@ const logos = [
   { src: "/logos/feishu.svg", w: 120 },
   { src: "/logos/google-2015.svg", w: 117 },
   { src: "/logos/google-gemini.svg", w: 120 },
-  { src: "/logos/openai.svg", w: 130 },
+  { src: "/logos/openAI.svg", w: 130 },
 ];
 
 export default function LogoCarousel() {
