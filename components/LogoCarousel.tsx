@@ -2,24 +2,21 @@
 
 import Image from "next/image";
 
+// ⭐ 已修正：所有 src 使用干净、合法的文件名
 const logos = [
-  { src: "/logos/N8n-logo-new.svg (1).png", w: 120 },
+  { src: "/logos/n8n.png", w: 120 },
   { src: "/logos/skool.png", w: 110 },
-  { src: "/logos/DeepSeek-Logo.png", w: 133 },
+  { src: "/logos/deepseek.png", w: 133 },
   { src: "/logos/feishu.jpg", w: 120 },
-  { src: "/logos/Google_2015_logo.svg.png", w: 117 },
-  { src: "/logos/Google_Gemini_logo_2025.svg.png", w: 120 },
-  { src: "/logos/openAI.svg", w: 130 },
+  { src: "/logos/google-2015.png", w: 117 },
+  { src: "/logos/google-gemini.png", w: 120 },
+  { src: "/logos/openai.svg", w: 130 },
 ];
 
 export default function LogoCarousel() {
   return (
     <div className="w-full mt-32 py-12 bg-white border-b border-gray-100">
       <div className="max-w-5xl mx-auto px-6">
-        
-        {/* ⭐ 修改处：字体放大 */}
-        {/* text-2xl (移动端) -> md:text-3xl (桌面端) */}
-        {/* text-slate-500 保持低调专业，如果想跳一点可以用 text-blue-600 */}
         <h2 className="text-center text-xl md:text-2xl font-bold tracking-widest text-slate-600 uppercase mb-12">
           技术生态伙伴
         </h2>
