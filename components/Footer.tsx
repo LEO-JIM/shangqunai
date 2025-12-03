@@ -29,10 +29,10 @@ const Footer = () => {
               导航
             </h3>
             <ul className="space-y-3">
-              <li><a href="/" className="text-sm hover:text-white transition-colors">首页</Link></li>
-              <li><a href="/cases" className="text-sm hover:text-white transition-colors">案例</Link></li>
-              <li><a href="/#pricing" className="text-sm hover:text-white transition-colors">价格</Link></li>
-              <li><a href="/about" className="text-sm hover:text-white transition-colors">关于我们</Link></li>
+              <li><a href="/" className="text-sm hover:text-white transition-colors">首页</a></li>
+              <li><a href="/cases" className="text-sm hover:text-white transition-colors">案例</a></li>
+              <li><a href="/#pricing" className="text-sm hover:text-white transition-colors">价格</a></li>
+              <li><a href="/about" className="text-sm hover:text-white transition-colors">关于我们</a></li>
             </ul>
           </div>
 
