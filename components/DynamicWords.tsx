@@ -4,9 +4,9 @@ import { useState, useEffect } from "react";
 
 export default function DynamicWords() {
   const words = [
-    "减少 45% 运营成本",    //稍微加长了一点描述，显得更完整
+    "减少 18% 运营成本",    //稍微加长了一点描述，显得更完整
     "每周节省 21 小时工时",
-    "驱动 30% 净利润增长",
+    "驱动 10% 净利润增长",
     "实现 24/7 业务自动运转",
     "提高客户满意度"
   ];
