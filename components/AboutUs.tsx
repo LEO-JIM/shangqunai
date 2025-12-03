@@ -18,7 +18,7 @@ const credentials = [
     icon: <Icons.Handshake />,
   },
   {
-    title: "全球最大付费 AI 自动化社群 (Skool) Top 4% 贡献者",
+    title: "全球最大付费 AI 自动化社群 (AIS+) Top 4% 贡献者",
     desc: "与北美 AI 自动化代理公司保持长期交流，掌握行业最佳实践。",
     icon: <Icons.Star />,
   },
@@ -38,7 +38,7 @@ const credentials = [
     icon: <Icons.Math />,
   },
   {
-    title: "专注 B2B 自动化与流程重构",
+    title: "专注 B2B AI 自动化与流程重构",
     desc: "不科普科技玩具，只做能为企业真正节省人工与时间成本的交付。",
     icon: <Icons.Business />,
   },
