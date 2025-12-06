@@ -1,0 +1,156 @@
+"use client";
+
+import React from "react";
+
+const Solutions = () => {
+  return (
+    <section className="w-full py-24 px-6 md:px-8 bg-slate-50">
+      <div className="max-w-5xl mx-auto">
+        
+        {/* Header */}
+        <div className="text-center mb-16">
+          <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-6">
+            不仅仅是修补漏洞，更是<span className="text-blue-600">重塑业务流转的逻辑</span>
+          </h2>
+          <p className="text-lg text-slate-600 max-w-3xl mx-auto">
+            我们利用 <strong>n8n (自动化中枢)</strong> 在后台打通脉络，
+            并通过 <strong>飞书 (企业控制台)</strong> 让您在前端轻松掌控。
+            <br className="hidden md:block" />
+            让数据替人跑腿，让利润自动增长。
+          </p>
+        </div>
+
+        <div className="space-y-8">
+          
+          {/* 1. 对应痛点：线索跟进慢 */}
+          <SolutionCard 
+            badge="线索转化"
+            title="从“看天吃饭”到 0.5 秒极速响应"
+            resultHighlight="线索转化率提升 30%+"
+            desc="客户提交需求的瞬间，不再需要人工分发。让最有温度的真人销售，在客户意向最强烈的时刻介入，截杀竞争对手。"
+            techProof="n8n 实时监听投放渠道 → 自动清洗数据并验证有效性 → 毫秒级触发飞书交互卡片 → 销售一键认领跟进。"
+          />
+
+          {/* 2. 对应痛点：高薪员工做表哥表姐 */}
+          <SolutionCard 
+            badge="人力解放"
+            title="砍掉 90% 的重复录入，让精英回归核心业务"
+            resultHighlight="每年节省数百小时的高昂工时"
+            desc="让机器人处理复制粘贴、发票录入、合同归档。您的员工不再是数据的“搬运工”，而是业务的“操盘手”。"
+            techProof="n8n 自动抓取邮件/文件/聊天记录 → 集成 OCR 智能识别提取 → 自动写入飞书多维表格。零错误，全自动。"
+          />
+
+          {/* 3. 对应痛点：销售交付脱节/截图沟通 */}
+          <SolutionCard 
+            badge="协同交付"
+            title="销售签单即交付开始，消灭“信息时差”"
+            resultHighlight="跨部门沟通成本降低 70%"
+            desc="拒绝截图传话。销售签单的瞬间，财务收到开票申请，库房收到发货指令，实施团队收到任务指派。全流程自动推着人走。"
+            techProof="n8n 监听 CRM 成交状态 → 并行分发飞书任务 (Task) 给各部门 → 自动拉群并同步上下文 → 完工自动汇报。"
+          />
+
+          {/* 4. 对应痛点：SaaS 软件不互通 */}
+          <SolutionCard 
+            badge="数据中台"
+            title="打通软件孤岛，一个飞书看懂全盘生意"
+            resultHighlight="数据统计从“T+3”变为“T+0 (实时)”"
+            desc="无论您用 CRM、ERP 还是电商后台，数据最终都汇聚在一处。无需昂贵的二次开发，低成本实现数据大一统。"
+            techProof="n8n 作为“API 胶水”连接所有独立软件 → 统一清洗数据格式 → 实时同步至飞书多维表格仪表盘。"
+          />
+
+          {/* 5. 对应痛点：事后救火/缺乏预警 */}
+          <SolutionCard 
+            badge="风险控制"
+            title="7×24 小时智能哨兵，风险“零延时”上报"
+            resultHighlight="将潜在损失拦截在发生之前"
+            desc="库存低于警戒线、VIP 客户情绪异常、利润率波动，系统比您先知道，并直接“追”着负责人去解决问题。"
+            techProof="n8n 设定复杂的业务监控逻辑 → 一旦触发阈值 → 调用飞书“加急”消息接口 (Buzz) → 手机端一键处理闭环。"
+          />
+
+        </div>
+        
+        {/* Transition / Custom Service Tease */}
+        <div className="mt-20 text-center border-t border-gray-200 pt-16">
+          <h3 className="text-2xl font-bold text-slate-800 mb-4">
+            这 5 个场景，仅仅是效率提升的<span className="text-blue-600">冰山一角</span>
+          </h3>
+          <p className="text-slate-600 max-w-2xl mx-auto mb-8 leading-relaxed">
+            每家企业的流程都是独一无二的。您的业务中，还有大量隐形的繁琐环节占用了宝贵的时间。
+            <br/>
+            我们提供的不是标准化的软件，而是<strong>深度贴合您业务逻辑的定制化疏通服务</strong>。
+          </p>
+          
+          {/* 下滑引导，指向服务特点部分 */}
+          <div className="flex flex-col items-center justify-center gap-2 text-slate-400 text-sm animate-pulse">
+            <span>了解我们的定制服务模式</span>
+            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+            </svg>
+          </div>
+        </div>
+
+      </div>
+    </section>
+  );
+};
+
+// 独立的卡片组件
+const SolutionCard = ({ badge, title, resultHighlight, desc, techProof }: { badge: string, title: string, resultHighlight: string, desc: string, techProof: string }) => (
+  <div className="bg-white rounded-2xl p-6 md:p-8 shadow-sm border border-gray-100 hover:shadow-md transition-shadow relative overflow-hidden group">
+    {/* 左侧装饰条 */}
+    <div className="absolute left-0 top-0 bottom-0 w-1.5 bg-blue-600"></div>
+    
+    <div className="flex flex-col md:flex-row gap-6 md:gap-10">
+      {/* 左侧：核心商业成果 */}
+      <div className="flex-1">
+        <div className="inline-block px-3 py-1 bg-blue-50 text-blue-700 text-xs font-bold uppercase tracking-wider rounded-full mb-3">
+          {badge}
+        </div>
+        <h3 className="text-xl md:text-2xl font-bold text-slate-900 mb-3">
+          {title}
+        </h3>
+        <p className="text-slate-600 leading-relaxed mb-4 text-sm md:text-base">
+          {desc}
+        </p>
+        <div className="bg-green-50/50 border border-green-100 rounded-lg p-3 inline-block">
+          <p className="text-green-700 font-bold flex items-center gap-2 text-sm">
+            <TrendingUpIcon />
+            {resultHighlight}
+          </p>
+        </div>
+      </div>
+
+      {/* 右侧：技术实现原理 (The "How") */}
+      <div className="md:w-1/3 bg-slate-50 rounded-xl p-5 border border-slate-100 flex flex-col justify-center">
+        <div className="flex items-center gap-2 mb-3 text-slate-800 font-semibold text-sm">
+          <WorkflowIcon />
+          <span>技术实现逻辑</span>
+        </div>
+        <p className="text-xs text-slate-500 leading-relaxed font-mono">
+          {techProof}
+        </p>
+        {/* 视觉暗示：连接图标 */}
+        <div className="mt-4 flex items-center gap-2 text-slate-300">
+           <div className="h-1 flex-1 bg-slate-200 rounded-full"></div>
+           <div className="text-[10px] text-slate-400 font-bold">n8n + Feishu</div>
+           <div className="h-1 flex-1 bg-slate-200 rounded-full"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+);
+
+// Icons
+const TrendingUpIcon = () => (
+  <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
+  </svg>
+);
+
+const WorkflowIcon = () => (
+  <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19.428 15.428a2 2 0 00-1.022-.547l-2.384-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z" />
+  </svg>
+);
+
+export default Solutions;
