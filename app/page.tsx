@@ -42,8 +42,8 @@ export default function Home() {
   </h1>
   
   <p className="mt-8 md:mt-10 max-w-2xl text-lg md:text-[22px] text-slate-600 leading-[1.6] md:leading-[1.8]">
-    我们通过深度理解业务流程，为企业定制 AI 自动化方案，<br className="hidden md:block" />
-    节省人力成本，提升运行效率，并实现可持续增长。
+    我们通过梳理您的业务流程，定制 AI 工作流，<br className="hidden md:block" />
+    节省人力成本，提升运行效率，并助力利润增长。
   </p>
   
 
