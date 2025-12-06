@@ -2,23 +2,22 @@
 
 import React from "react";
 
-// 针对 6 个核心价值点定制的 SVG 图标
+// ... (Icons 部分保持不变，省略以节省空间) ...
 const Icons = {
-  // 1. 真实 ROI -> 增长趋势/钱袋 (代表量化回报)
+  // ... 保持原来的 Icon 代码 ...
   Roi: () => (
     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
       <line x1="12" y1="1" x2="12" y2="23" />
       <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6" />
     </svg>
   ),
-  // 2. 稳定性优先 -> 锚/盾牌 (代表稳固、不冒进)
   Stable: () => (
     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-      <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
-      <path d="m9 12 2 2 4-4" />
+      <circle cx="12" cy="5" r="3" />
+      <line x1="12" y1="22" x2="12" y2="8" />
+      <path d="M5 12H2a10 10 0 0 0 20 0h-3" />
     </svg>
   ),
-  // 3. 数据安全 -> 服务器/锁 (代表自托管、私有)
   Security: () => (
     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
       <rect width="20" height="8" x="2" y="2" rx="2" ry="2" />
@@ -29,7 +28,6 @@ const Icons = {
       <path d="M18 6h.01" />
     </svg>
   ),
-  // 4. 人机协作 -> 用户 + 机器人 (代表分工)
   Coop: () => (
     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
       <path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2" />
@@ -38,24 +36,15 @@ const Icons = {
       <path d="M19 8v6" />
     </svg>
   ),
-  // 5. 软件适应业务 -> 滑块/调节 (代表定制、适配)
   Adapt: () => (
     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-      <line x1="4" y1="21" x2="4" y2="14" />
-      <line x1="4" y1="10" x2="4" y2="3" />
-      <line x1="12" y1="21" x2="12" y2="12" />
-      <line x1="12" y1="8" x2="12" y2="3" />
-      <line x1="20" y1="21" x2="20" y2="16" />
-      <line x1="20" y1="12" x2="20" y2="3" />
-      <line x1="1" y1="14" x2="7" y2="14" />
-      <line x1="9" y1="8" x2="15" y2="8" />
-      <line x1="17" y1="16" x2="23" y2="16" />
+      <path d="m11 17 2 2a1 1 0 1 0 3-3" />
+      <path d="m14 14 2.5 2.5a1 1 0 1 0 3-3l-3.88-3.88a3 3 0 0 0-4.24 0l-.88.88a1 1 0 1 1-1.42-1.42l.88-.88a1 1 0 0 0 0-1.42l-1.88-1.88a3 3 0 0 0-4.24 0l-2 2a3 3 0 0 0 0 4.24l2.88 2.88a3 3 0 0 0 4.24 0l1-1" />
     </svg>
   ),
-  // 6. 拒绝PPT -> 锤子/实干 (代表解决实际问题)
   Action: () => (
     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-      <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z" />
+      <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2" />
     </svg>
   ),
 };
@@ -63,7 +52,7 @@ const Icons = {
 const BusinessFeatures: React.FC = () => {
   const features = [
     {
-      title: "真实 ROI，拒绝虚假繁荣",
+      title: "真实 ROI",
       icon: <Icons.Roi />,
       description:
         "不做行业报告，不堆砌工具清单，不推销科技玩具。每一处 AI 的使用都直接带来利润的增加，确保您能看到清晰、可量化的成本降低与效率提升。",
@@ -72,31 +61,31 @@ const BusinessFeatures: React.FC = () => {
       title: "稳定性是基础",
       icon: <Icons.Stable />,
       description:
-        "只采用经过大量数据验证的成熟工具与工作流，不冒进使用不稳定的技术，稳稳实现成本节省、利润提升。",
+        "我们深知生产环境不是试验场。只采用经过市场反复验证的成熟工具与架构，不冒进追求最新最潮的模型，只追求跑得稳、不出错，保障业务连续性。",
     },
     {
-      title: "数据私有，安全可控",
+      title: "数据私有",
       icon: <Icons.Security />,
       description:
-        "基于 n8n 自托管架构，确保数据 100% 留存在您的服务器内。提供长期的陪伴式维护，随业务变化实时优化，不仅好用，更要安全。",
+        "拒绝第三方 SaaS 的云端黑盒。基于 n8n 私有化部署，确保数据 100% 留存在您的服务器内。让核心经营数据物理隔绝，安全握在自己手中。",
     },
     {
-      title: "人机协作，各司其职",
+      title: "人机协作",
       icon: <Icons.Coop />,
       description:
-        "没有 AI 能完全接管一个岗位。让 AI 负责枯燥的重复杂事，把您的团队从低效劳动中解放出来，专注于判断、创意与高价值产出。",
+        "AI 目前无法处理复杂决策。我们用 AI 接管枯燥的重复劳动，让它成为员工的“超强辅助”，把您的团队从低效劳动中解放出来，专注于判断与管理。",
     },
     {
-      title: "让软件迁就业务",
+      title: "全套陪伴",
       icon: <Icons.Adapt />,
       description:
-        "拒绝“丢个模板就跑”的交付。所有流程均围绕您的业务现状定制，最大程度保留团队习惯，通过平滑过渡，让 AI 工作流真正融入业务、服务于业务。",
+        "拒绝“丢个账号就跑”。我们提供从服务器配置、流程梳理到后期维护的全套陪伴服务。您不需要懂技术，只需要提需求，剩下的交给我们。",
     },
     {
-      title: "小步快跑，拒绝 PPT 革命",
+      title: "一次解决一个痛点",
       icon: <Icons.Action />,
       description:
-        "我们不是大型咨询公司，也不是大科技公司的售前团队。一次解决一个痛点，有实际效果了再做下一个，用实实在在的 ROI 推动长期增长。",
+        "不搞耗时半年的大型咨询。我们实行“单点突破”，一次只解决一个最痛的环节。先看到省了时间、有了效果，再做下一步。",
     },
   ];
 
@@ -108,9 +97,14 @@ const BusinessFeatures: React.FC = () => {
           <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-6">
             我们的核心承诺
           </h2>
+          
+          {/* 修改后的副标题 */}
           <p className="text-xl text-slate-600 max-w-3xl mx-auto font-medium">
-            用最务实的方式，为您构建安全、稳定、ROI 高的 AI 自动化体系
+            <span className="text-blue-600 font-bold">拒绝技术堆砌，回归商业本质。</span>
+            <br className="md:hidden" />
+            拒绝技术堆砌，回归商业本质，为您构建安全、稳定、ROI 高的 AI 自动化体系
           </p>
+
           <p className="mt-4 text-slate-500 max-w-2xl mx-auto">
             从技术选型到落地交付，我们坚持 6 项基本原则。
           </p>
@@ -121,7 +115,6 @@ const BusinessFeatures: React.FC = () => {
           {features.map((feature, idx) => (
             <div
               key={idx}
-              // 交互：Hover 时边框变蓝，阴影加深
               className="group bg-white border border-gray-100 rounded-3xl p-8 hover:border-blue-100 hover:shadow-xl hover:shadow-blue-900/5 transition-all duration-300 flex flex-col"
             >
               <div className="flex items-start justify-between mb-6">
