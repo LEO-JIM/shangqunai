@@ -30,7 +30,7 @@ const pricingPlans = [
   {
     name: "流程协作伙伴",
     subtitle: "适合业务场景单一，需要快速实现自动化的团队",
-    price: "¥8,999",
+    price: "¥4,999 - ¥9,999",
     period: "/月",
     description: "每月稳步推进一个核心业务场景的自动化升级。",
     formKey: "standard", // 👈 关联上面的 standard 链接
@@ -49,7 +49,7 @@ const pricingPlans = [
   {
     name: "实效增长伙伴",
     subtitle: "适合业务复杂，需要深度技术介入的企业",
-    price: "¥59,999",
+    price: "¥25,999 - ¥85,999",
     period: "/月",
     description: "处理跨系统、高复杂度的业务逻辑，提供更高级别的技术保障。",
     formKey: "pro", // 👈 关联上面的 pro 链接
