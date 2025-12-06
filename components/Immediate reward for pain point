@@ -13,7 +13,7 @@ const Solutions = () => {
             不仅仅是修补漏洞，更是<span className="text-blue-600">重塑业务流转的逻辑</span>
           </h2>
           <p className="text-lg text-slate-600 max-w-3xl mx-auto">
-            我们利用 <strong>n8n (自动化中枢)</strong> 在后台打通脉络，
+            我们利用 <strong>n8n (AI自动化中枢)</strong> 在后台打通脉络，
             并通过 <strong>飞书 (企业控制台)</strong> 让您在前端轻松掌控。
             <br className="hidden md:block" />
             让数据替人跑腿，让利润自动增长。
