@@ -95,7 +95,7 @@ const BusinessFeatures: React.FC = () => {
         {/* Section Header */}
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-6">
-            我们的核心承诺
+            我们的服务特点
           </h2>
           
           {/* 修改后的副标题 */}
@@ -105,9 +105,6 @@ const BusinessFeatures: React.FC = () => {
             为您构建安全、稳定、ROI 高的 AI 自动化体系
           </p>
 
-          <p className="mt-4 text-slate-500 max-w-2xl mx-auto">
-            从技术选型到落地交付，我们坚持 6 项基本原则。
-          </p>
         </div>
 
         {/* Features Grid - 3x2 布局 */}
