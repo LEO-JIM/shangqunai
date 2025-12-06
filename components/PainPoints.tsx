@@ -197,7 +197,7 @@ const PainPoints: React.FC = () => {
               </svg>
             </div>
             <p className="text-xs text-slate-500 mt-4 uppercase tracking-widest group-hover:text-blue-300 transition-colors">
-              查看自动化止损方案
+              查看 AI 自动化止损方案
             </p>
           </div>
         </div>
