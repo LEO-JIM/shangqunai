@@ -13,7 +13,7 @@ const Solutions = () => {
             不仅仅是修补漏洞，更是<span className="text-blue-600">重塑业务流转的逻辑</span>
           </h2>
           <p className="text-lg text-slate-600 max-w-3xl mx-auto">
-            我们利用 <strong>n8n (AI自动化中枢)</strong> 在后台打通脉络，
+            利用 <strong>n8n (AI自动化中枢)</strong> 在后台打通脉络，
             并通过 <strong>飞书 (企业控制台)</strong> 让您在前端轻松掌控。
             <br className="hidden md:block" />
             让数据替人跑腿，让利润自动增长。
@@ -82,7 +82,7 @@ const Solutions = () => {
           
           {/* 下滑引导，指向服务特点部分 */}
           <div className="flex flex-col items-center justify-center gap-2 text-slate-400 text-sm animate-pulse">
-            <span>了解我们的定制服务模式</span>
+            <span>了解我们的服务特点</span>
             <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
             </svg>
