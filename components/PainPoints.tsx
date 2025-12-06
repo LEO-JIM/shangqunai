@@ -2,7 +2,7 @@
 
 import React from "react";
 
-// 图标组件 (保持刚才的“痛点型”图标，但颜色会在下方统一改为蓝色)
+// 图标组件 (保持不变)
 const Icons = {
   MoneyLoss: () => (
     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -96,7 +96,8 @@ const painPoints = [
 const PainPoints: React.FC = () => {
   return (
     <section className="w-full py-24 px-6 md:px-8 bg-white border-b border-gray-100">
-      <div className="max-w-6xl mx-auto">
+      {/* 修改点 1: max-w-6xl 改为 max-w-7xl，让容器更宽 */}
+      <div className="max-w-7xl mx-auto">
         {/* Header */}
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-6">
@@ -112,20 +113,21 @@ const PainPoints: React.FC = () => {
           {painPoints.map((item, idx) => (
             <div
               key={idx}
-              // 回归蓝色 hover 效果
-              className="group relative bg-white rounded-2xl p-8 shadow-sm border border-gray-100 hover:shadow-lg hover:border-blue-100 hover:bg-blue-50/30 transition-all duration-300"
+              // 修改点 2: p-8 改为 px-6 py-8。保持垂直空间，但减少左右内边距，给文字腾地方
+              className="group relative bg-white rounded-2xl px-6 py-8 shadow-sm border border-gray-100 hover:shadow-lg hover:border-blue-100 hover:bg-blue-50/30 transition-all duration-300"
             >
-              {/* Number - 蓝色系 */}
+              {/* Number */}
               <div className="absolute top-4 right-6 text-6xl font-black text-slate-100 group-hover:text-blue-50 transition-colors pointer-events-none select-none">
                 {item.id}
               </div>
 
-              {/* Icon & Title - 蓝色系 */}
+              {/* Icon & Title */}
               <div className="relative z-10 mb-6">
                 <div className="w-12 h-12 bg-blue-50 text-blue-600 rounded-xl flex items-center justify-center mb-4 group-hover:bg-blue-600 group-hover:text-white transition-colors duration-300">
                   {item.icon}
                 </div>
-                <h3 className="text-lg font-bold text-slate-900 leading-tight pr-4">
+                {/* 修改点 3: 移除了 pr-4，避免右侧无意义的留白挤压标题空间；添加 tracking-tight 稍微收紧字间距 */}
+                <h3 className="text-lg font-bold text-slate-900 leading-tight tracking-tight">
                   {item.title}
                 </h3>
               </div>
@@ -140,12 +142,11 @@ const PainPoints: React.FC = () => {
                       key={i} 
                       className={`flex items-start text-sm leading-relaxed ${
                         isResult 
-                          // 结果行：加粗，使用深色强调，不再用红色
                           ? "font-bold text-slate-900 mt-2 pt-3 border-t border-dashed border-gray-200" 
                           : "text-slate-600"
                       }`}
                     >
-                      {/* 图标/圆点 - 蓝色系 */}
+                      {/* 图标/圆点 */}
                       {!isResult && (
                         <span className="mt-1.5 mr-2.5 min-w-[6px] h-1.5 rounded-full bg-gray-300 group-hover:bg-blue-400 transition-colors"></span>
                       )}
@@ -169,11 +170,11 @@ const PainPoints: React.FC = () => {
             </div>
           ))}
 
-          {/* Card 6: CTA - 回归蓝色系 */}
+          {/* Card 6: CTA */}
           <div className="
             relative group cursor-pointer
             flex flex-col justify-center items-center 
-            p-8 rounded-2xl 
+            px-6 py-8 rounded-2xl 
             bg-slate-900 
             text-white text-center 
             shadow-xl 
@@ -183,13 +184,14 @@ const PainPoints: React.FC = () => {
             hover:bg-slate-800
             border border-slate-800 hover:border-blue-500/50
           ">
+            {/* CTA 同样改为了 px-6 py-8 以保持大小一致 */}
             <h3 className="text-xl font-bold mb-4 group-hover:text-blue-200 transition-colors">
               别让这些低级损耗<br/>浪费宝贵的运营预算
             </h3>
             <p className="text-slate-400 text-sm mb-8 leading-relaxed">
-              看我们如何用 AI 把这些“漏洞”堵上。
+              看我们如何用 AI 把这些“漏洞”补上。
             </p>
-            {/* 箭头动画 - 蓝色 */}
+            {/* 箭头动画 */}
             <div className="animate-bounce mt-2 p-2 rounded-full bg-slate-800 group-hover:bg-blue-600 transition-colors duration-300">
               <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
