@@ -102,7 +102,7 @@ const BusinessFeatures: React.FC = () => {
           <p className="text-xl text-slate-600 max-w-3xl mx-auto font-medium">
             <span className="text-blue-600 font-bold">拒绝技术堆砌，回归商业本质。</span>
             <br className="md:hidden" />
-            拒绝技术堆砌，回归商业本质，为您构建安全、稳定、ROI 高的 AI 自动化体系
+            为您构建安全、稳定、ROI 高的 AI 自动化体系
           </p>
 
           <p className="mt-4 text-slate-500 max-w-2xl mx-auto">
