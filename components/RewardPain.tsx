@@ -10,66 +10,65 @@ const Solutions = () => {
         {/* Header */}
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-6">
-            不仅仅是修补漏洞，更是<span className="text-blue-600">重塑业务流转的逻辑</span>
+            不仅仅是省钱，更是<span className="text-blue-600">让生意自己会自动跑起来</span>
           </h2>
           <p className="text-lg text-slate-600 max-w-3xl mx-auto">
-            利用 <strong>n8n (AI自动化中枢)</strong> 在后台打通脉络，
-            并通过 <strong>飞书 (企业控制台)</strong> 让您在前端轻松掌控。
+            利用 <strong>n8n (24小时 AI 员工)</strong> 在后台干脏活累活，
             <br className="hidden md:block" />
-            让数据替人跑腿，让利润自动增长。
+            并通过 <strong>飞书 (老板的控制台)</strong> 让您在手机上随时掌控全局。
           </p>
         </div>
 
         <div className="space-y-8">
           
-          {/* 1. 对应痛点：线索跟进慢 */}
+          {/* 1. 线索转化 - 痛点：花钱引流没转化 */}
           <SolutionCard 
             badge="线索转化"
-            title="从“看天吃饭”到 0.5 秒极速响应"
-            resultHighlight="线索转化率提升 30%+"
-            desc="客户提交需求的瞬间，不再需要人工分发。让最有温度的真人销售，在客户意向最强烈的时刻介入，截杀竞争对手。"
-            techProof="n8n 实时监听投放渠道 → 自动清洗数据并验证有效性 → 毫秒级触发飞书交互卡片 → 销售一键认领跟进。"
+            title="客户刚留言，销售的电话就打过去了"
+            resultHighlight="线索浪费率降低 80%"
+            desc="别让客户等冷了。广告一有留资，系统毫秒级自动分配给销售。只有在客户意向最强的那一刻联系，成交率才最高。"
+            techProof="后台原理：自动对接广告平台 → 自动剔除空号/假号码 → 飞书弹窗强提醒销售 → 销售点击卡片一键拨号。"
           />
 
-          {/* 2. 对应痛点：高薪员工做表哥表姐 */}
+          {/* 2. 人力解放 - 痛点：高薪低能 */}
           <SolutionCard 
             badge="人力解放"
-            title="砍掉 90% 的重复录入，让精英回归核心业务"
-            resultHighlight="每年节省数百小时的高昂工时"
-            desc="让机器人处理复制粘贴、发票录入、合同归档。您的员工不再是数据的“搬运工”，而是业务的“操盘手”。"
-            techProof="n8n 自动抓取邮件/文件/聊天记录 → 集成 OCR 智能识别提取 → 自动写入飞书多维表格。零错误，全自动。"
+            title="别付着 2 万的工资，让人干着 3 千块的复制粘贴"
+            resultHighlight="每年节省 500+ 小时无效工时"
+            desc="发票录入、合同归档、订单搬运……这些枯燥的事让机器人做。把您的精英员工从表格里解放出来，让他们去谈客户、去搞钱。"
+            techProof="后台原理：自动抓取邮件/文件 → 机器自动识别图片文字 → 自动填入飞书表格。不出错，不喊累。"
           />
 
-          {/* 3. 对应痛点：销售交付脱节/截图沟通 */}
+          {/* 3. 协同交付 - 痛点：内部扯皮 */}
           <SolutionCard 
             badge="协同交付"
-            title="销售签单即交付开始，消灭“信息时差”"
-            resultHighlight="跨部门沟通成本降低 70%"
-            desc="拒绝截图传话。销售签单的瞬间，财务收到开票申请，库房收到发货指令，实施团队收到任务指派。全流程自动推着人走。"
-            techProof="n8n 监听 CRM 成交状态 → 并行分发飞书任务 (Task) 给各部门 → 自动拉群并同步上下文 → 完工自动汇报。"
+            title="销售刚签单，财务和库房就已经动起来了"
+            resultHighlight="订单交付周期缩短 50%"
+            desc="拒绝“我没看到群消息”。一旦成交，系统自动要把活派给财务、库房和实施。不是人催人，而是系统推着人走，想偷懒都不行。"
+            techProof="后台原理：监控销售签单状态 → 自动给各部门发飞书任务卡片 → 自动拉专属服务群 → 完工自动汇报。"
           />
 
-          {/* 4. 对应痛点：SaaS 软件不互通 */}
+          {/* 4. 数据孤岛 - 痛点：看不清账 (去掉了SaaS、中台等词) */}
           <SolutionCard 
-            badge="数据中台"
-            title="打通软件孤岛，一个飞书看懂全盘生意"
-            resultHighlight="数据统计从“T+3”变为“T+0 (实时)”"
-            desc="无论您用 CRM、ERP 还是电商后台，数据最终都汇聚在一处。无需昂贵的二次开发，低成本实现数据大一统。"
-            techProof="n8n 作为“API 胶水”连接所有独立软件 → 统一清洗数据格式 → 实时同步至飞书多维表格仪表盘。"
+            badge="经营数据"
+            title="不用问下属要报表，手机打开就是实时经营数据"
+            resultHighlight="从“月底看报表”变为“实时看大盘”"
+            desc="软件买了一大堆，数据全是散的？我们帮您把 CRM、财务、电商后台的数据全部打通，汇总在一张表上，老板一眼就能看懂。"
+            techProof="后台原理：连接所有独立软件接口 → 统一整理数据格式 → 实时同步至飞书多维表格仪表盘。"
           />
 
-          {/* 5. 对应痛点：事后救火/缺乏预警 */}
+          {/* 5. 风险控制 - 痛点：出事了才知道 */}
           <SolutionCard 
             badge="风险控制"
-            title="7×24 小时智能哨兵，风险“零延时”上报"
-            resultHighlight="将潜在损失拦截在发生之前"
-            desc="库存低于警戒线、VIP 客户情绪异常、利润率波动，系统比您先知道，并直接“追”着负责人去解决问题。"
-            techProof="n8n 设定复杂的业务监控逻辑 → 一旦触发阈值 → 调用飞书“加急”消息接口 (Buzz) → 手机端一键处理闭环。"
+            title="比老板更早发现问题，把风险掐死在苗头里"
+            resultHighlight="将潜在利润损失拦截在发生之前"
+            desc="库存不够了？大客户不开心了？利润跌破红线了？系统会比您先知道，并疯狂震动负责人的手机，直到问题解决为止。"
+            techProof="后台原理：全天候监控业务数据 → 一旦异常触发布控 → 飞书发送“加急”消息（强震动提醒）→ 手机端一键处理。"
           />
 
         </div>
         
-        {/* Transition / Custom Service Tease */}
+        {/* Transition */}
         <div className="mt-20 text-center border-t border-gray-200 pt-16">
           <h3 className="text-2xl font-bold text-slate-800 mb-4">
             这 5 个场景，仅仅是效率提升的<span className="text-blue-600">冰山一角</span>
@@ -77,12 +76,11 @@ const Solutions = () => {
           <p className="text-slate-600 max-w-2xl mx-auto mb-8 leading-relaxed">
             每家企业的流程都是独一无二的。您的业务中，还有大量隐形的繁琐环节占用了宝贵的时间。
             <br/>
-            我们提供的不是标准化的软件，而是<strong>深度贴合您业务逻辑的定制化疏通服务</strong>。
+            我们提供的不是标准化的软件，而是深度贴合您业务逻辑的定制化疏通服务。</strong>。
           </p>
           
-          {/* 下滑引导，指向服务特点部分 */}
           <div className="flex flex-col items-center justify-center gap-2 text-slate-400 text-sm animate-pulse">
-            <span>了解我们的服务特点</span>
+            <span>了解我们的服务承诺</span>
             <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
             </svg>
@@ -120,11 +118,11 @@ const SolutionCard = ({ badge, title, resultHighlight, desc, techProof }: { badg
         </div>
       </div>
 
-      {/* 右侧：技术实现原理 (The "How") */}
+      {/* 右侧：技术实现原理 (用大白话解释) */}
       <div className="md:w-1/3 bg-slate-50 rounded-xl p-5 border border-slate-100 flex flex-col justify-center">
         <div className="flex items-center gap-2 mb-3 text-slate-800 font-semibold text-sm">
           <WorkflowIcon />
-          <span>技术实现逻辑</span>
+          <span>后台自动执行逻辑</span>
         </div>
         <p className="text-xs text-slate-500 leading-relaxed font-mono">
           {techProof}
@@ -132,7 +130,7 @@ const SolutionCard = ({ badge, title, resultHighlight, desc, techProof }: { badg
         {/* 视觉暗示：连接图标 */}
         <div className="mt-4 flex items-center gap-2 text-slate-300">
            <div className="h-1 flex-1 bg-slate-200 rounded-full"></div>
-           <div className="text-[10px] text-slate-400 font-bold">n8n + Feishu</div>
+           <div className="text-[10px] text-slate-400 font-bold">n8n + 飞书</div>
            <div className="h-1 flex-1 bg-slate-200 rounded-full"></div>
         </div>
       </div>
