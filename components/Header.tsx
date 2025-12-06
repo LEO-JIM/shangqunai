@@ -13,7 +13,7 @@ export default function Header() {
       
       {/* 左上 Logo */}
       <a href="/" className="text-2xl font-bold tracking-tight text-slate-900 cursor-pointer">
-        商群
+        商群AI
       </a>
 
       {/* 右侧导航 + CTA */}
