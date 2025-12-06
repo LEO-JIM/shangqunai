@@ -18,7 +18,7 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   // 建议把这里的标题改成您公司的名字
-  title: "商群 - AI自动化解决方案", 
+  title: "商群AI", 
   description: "广州商群人工智能科技有限公司",
 };
 
