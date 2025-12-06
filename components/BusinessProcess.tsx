@@ -5,7 +5,7 @@ import React from "react";
 const steps = [
   {
     step: "01",
-    title: "业务梳理与诊断",
+    title: "梳理业务",
     desc: [
       {
         head: "精准定位痛点",
@@ -19,7 +19,7 @@ const steps = [
   },
   {
     step: "02",
-    title: "流程可视化设计",
+    title: "设计流程",
     desc: [
       {
         head: "业务逻辑透明化",
@@ -33,7 +33,7 @@ const steps = [
   },
   {
     step: "03",
-    title: "方案确认与定稿",
+    title: "确认方案",
     desc: [
       {
         head: "所见即所得",
@@ -47,7 +47,7 @@ const steps = [
   },
   {
     step: "04",
-    title: "私有化部署交付",
+    title: "私有化部署",
     desc: [
       {
         head: "数据绝对安全",
@@ -61,7 +61,7 @@ const steps = [
   },
   {
     step: "05",
-    title: "持续优化与陪跑",
+    title: "持续优化",
     desc: [
       {
         head: "越用越聪明",
